@@ -1,4 +1,41 @@
-# Aula 01 - Automação de Sistemas e Processos com Python
+<h1>Intensivão de Python</h1> 
+
+> Status do Projeto: :warning: Em desenvolvimento
+
+### Tópicos 
+
+:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
+
+:small_blue_diamond: [Funcionalidades](#funcionalidades)
+
+:small_blue_diamond: [Objetivos](#objetivos)
+
+:small_blue_diamond: [Pré-requisitos](#pré-requisitos)
+
+:small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
+
+:small_blue_diamond: [Desafio 01](#desafio-01)
+
+## Descrição do projeto 
+
+<p align="justify">
+  Meu primeiro projeto de automação de sistemas e automação web utilizando o Jupyter Notebook. 
+</p>
+
+## Funcionalidades
+
+:heavy_check_mark: Aula 01 - Automação de Sistemas e Processos com Python 
+
+:heavy_check_mark: Funcionalidade 2  
+
+:heavy_check_mark: Funcionalidade 3  
+
+:heavy_check_mark: Funcionalidade 4  
+
+
+## Objetivos
+
+- `Aula 01`
 
 Na primeira aula da Semana do Python você vai aprender a criar um código de automação de análise de dados e elaboração de
 relatórios do absoluto zero. Para isso, vamos passar por conceitos como:
@@ -11,7 +48,30 @@ relatórios do absoluto zero. Para isso, vamos passar por conceitos como:
 Após todos esses conhecimentos, seremos capazes de transformar uma tabela cheia de informações, nem um pouco fáceis de serem interpretadas, em uma ferramenta automatizada de geração e envio
 automático de relatórios para um destinatário pré-definido.
 
-##
+## Pré-requisitos
+
+- :warning: [Anaconda](https://www.anaconda.com/)
+- :warning: [Jupyter Notebook](https://jupyter.org/)
+- :warning: [Time](https://www.pythoncentral.io/pythons-time-sleep-pause-wait-sleep-stop-your-code/#:~:text=The%20time.sleep%20%28%29command%20is%20the%20equivalent%20to%20the,of%20seconds%20the%20Python%20program%20should%20pause%20execution.)
+- :warning: [Pandas](https://www.w3schools.com/python/pandas/default.asp)
+- :warning: [Pyperclip](https://pypi.org/project/pyperclip/)
+
+## Como rodar a aplicação :arrow_forward:
+
+No terminal, clone o projeto: 
+
+```
+git clone https://github.com/Leocbm/Intensivao-De-Python.git
+```
+- Vá até o seu terminal, caso não saiba basta pesquisar por 'Prompt De Comando' na barra de pesquisa:
+- Navegue até a pasta desejada com o comando 'cd', exemplo se sua pasta estiver no Desktop:
+``` 
+cd Desktop/Pasta
+```
+- Na pasta, basta escrever o comando acima.
+- Lembre-se de ter o <a href="https://git-scm.com/">git</a> instalado.
+
+## Desafio 01
 
 Para início, nos deparamos com o seguinte desafio:
 
@@ -166,3 +226,8 @@ pyautogui.hotkey("ctrl", "v")
 pyautogui.hotkey("ctrl", "enter")
 ```
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desenvolvedores/Contribuintes :octocat:
+
+| [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |
+| :---: |
