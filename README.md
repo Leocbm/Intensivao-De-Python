@@ -16,6 +16,8 @@
 
 :small_blue_diamond: [Desafio 01](#desafio-01)
 
+:small_blue_diamond: [Desafio 02](#desafio-02)
+
 ## Descrição do projeto 
 
 <p align="justify">
