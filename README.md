@@ -109,12 +109,12 @@ Agora o `Passo 4` é calcular os indicadores, para isso precisaremos importar a 
 ```
 import pandas as pd
 ```
-E agora importaremos nossa tabela baixada do link, para isso armazenaremos ela dentro de uma variável com nome de sua escolha e utilizaremos o comando pd.read_excel(r" ") informando o local exato em que o arquivo está localizado em seu computador (Varia de caso para caso), e usaremos um display() com a variável criada para mostrar a tabela na tela.
+- E agora importaremos nossa tabela baixada do link, para isso armazenaremos ela dentro de uma variável com nome de sua escolha e utilizaremos o comando pd.read_excel(r" ") informando o local exato em que o arquivo está localizado em seu computador (Varia de caso para caso), e usaremos um display() com a variável criada para mostrar a tabela na tela.
 ```
 tabela = pd.read_excel(r"C://Users/joaol/Downloads/Vendas - Dez.xlsx")
 display(tabela)
 ```
-Com a tabela na tela, analisaremos seus dados e pegaremos os dados que precisamos, e para isso usaremos os comandos a seguir para somar as colunas desejadas.
+- Com a tabela na tela, analisaremos seus dados e pegaremos os dados que precisamos, e para isso usaremos os comandos a seguir para somar as colunas desejadas.
 ```
 faturamento = tabela["Valor Final"].sum()
 quantidade = tabela["Quantidade"].sum()
@@ -122,6 +122,47 @@ quantidade = tabela["Quantidade"].sum()
 
 ##
 
+Para o `Passo 5` vamos repetir alguns comandos já utilizados, mas dessa vez para abrir uma nova aba e ir até o gmail
+```
+pyautogui.hotkey("ctrl", "t")
+pyperclip.copy("https://mail.google.com/mail/u/0/#inbox")
+pyautogui.hotkey("ctrl", "v")
+pyautogui.press("enter")
+time.sleep(5)
+```
+## 
 
+E enfim para o `Passo 6` iremos enviar por e-mail o resultado da nossa análise, e para isso precisamos:
+- [x] Clicar no + para escrever nova mensagem.
+- [x] Escrever o email do destinatário.
+- [x] Precionar tab para selecionar o email.
+- [x] Precionar tab novamente para mudar para o bloco descrição.
+- [x] Copiar a mensagem desejada.
+- [x] Utilizar o comando de atalho para colar a mensagem.
+- [x] Pressionar tab novamente para mudar de bloco.
+```
+pyautogui.click(x=40, y=173)
+pyautogui.write("seugmail+diretoria@gmail.com")
+pyautogui.press("tab")
+pyautogui.press("tab")
+pyperclip.copy("Relatório De Vendas")
+pyautogui.hotkey("ctrl", "v")
+pyautogui.press("tab")
+```
+- [x] Criar uma variavel texto formatada com os dados calculados no `Passo 4`
+```texto = f"""
+Prezados, bom dia
 
+O faturamento de ontem foi de: R${faturamento:,.2f}
+A quantidade de produtos foi de: {quantidade:,}
 
+Abs
+Leo"""
+```
+- [x] Copiar e colar o texto na mensagem do gmail e enviar para a diretoria.
+```
+pyperclip.copy(texto)
+pyautogui.hotkey("ctrl", "v")
+pyautogui.hotkey("ctrl", "enter")
+```
+- PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
