@@ -37,7 +37,7 @@
 
 - `Aula 01`
 
-Na primeira aula da Semana do Python você vai aprender a criar um código de automação de análise de dados e elaboração de
+Na primeira aula do Intensivão do Python você vai aprender a criar um código de automação de análise de dados e elaboração de
 relatórios do absoluto zero. Para isso, vamos passar por conceitos como:
 - `Jupyter Notebook`
 - `Variáveis, métodos`
@@ -47,6 +47,20 @@ relatórios do absoluto zero. Para isso, vamos passar por conceitos como:
 
 Após todos esses conhecimentos, seremos capazes de transformar uma tabela cheia de informações, nem um pouco fáceis de serem interpretadas, em uma ferramenta automatizada de geração e envio
 automático de relatórios para um destinatário pré-definido.
+##
+- `Aula 02`
+
+Na segunda aula do Intensivão do Python você vai aprender a criar um código de análise de dados. No dia a dia das empresas,
+é muito comum dúvidas sobre os resultados da empresa. Um conceito que cada dia mais cresce nas empresas é o data driven.
+Basicamente, é dizer que ações são tomadas com base nos dados e não em achismos.
+Aprenda como fazer uma super análise do zero com os conceitos abaixo:
+- `Importando dados de bases .csv`
+- `Tratar dados usando a biblioteca Pandas`
+- `Importação de bibliotecas`
+- `Criação de gráficos usando o plotly`
+
+Após todos esses conhecimentos, seremos capazes de transformar uma tabela cheia de informações, nem um pouco fáceis de serem 
+interpretadas em uma análise super aprofundada que servirão de base para tomada de decisão da gerência. Tudo graças a você! 
 
 ## Pré-requisitos
 
@@ -225,6 +239,161 @@ pyperclip.copy(texto)
 pyautogui.hotkey("ctrl", "v")
 pyautogui.hotkey("ctrl", "enter")
 ```
+- PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desafio 02
+
+Para início, nos deparamos com o seguinte desafio:
+
+- `Desafio`: Você trabalha em uma empresa de telecom e tem clientes de vários serviços diferentes, entre os principais: internet e telefone.
+O problema é que, analisando o histórico dos clientes dos últimos anos, você percebeu que a empresa está com Churn de mais de 26% dos clientes.
+Isso representa uma perda de milhões para a empresa.
+O que a empresa precisa fazer para resolver isso?
+- Base de Dados: https://drive.google.com/drive/folders/1T7D0BlWkNuy_MDpUHuBG44kT80EmRYIs?usp=sharing
+- Link Original do Kaggle: https://www.kaggle.com/radmirzosimov/telecom-users-dataset
+
+##
+
+Agora o próximo passo é pensar em como seria o processo necessário para chegar a solução, e chegamos a essa conclusão:
+
+- `Passo 1`: Importar a base de dados
+- `Passo 2`: Visualizar a base de dados
+- `Passo 3`: Tratamento de dados (resolver os problemas da base de dados)
+- `Passo 4`: Análise inicial dos dados (entender os cancelamentos)
+- `Passo 5`: Descobrir o motivo dos cancelamentos
+- `Passo 6`: Conclusões e Ações
+
+##
+
+O `Passo 1` possui apenas uma etapa necessária:
+- [x] Importar a base de dados
+
+Para resolver isso, vamos usar o pandas, uma biblioteca para leitura e manipulação de dados.
+
+Comandos pandas: https://pandas.pydata.org/docs/
+- A biblioteca pandas já vem instalada junto ao Jupyter.
+
+Agora podemos realizar os comandos necessários para concluir o `Passo 1`:
+- Primeiramente importamos a biblioteca do pandas com o comando 'import pandas as pd'.
+- Após importar a biblioteca basta armazenar a sua base de dados dentro de uma variável.
+- Nessa etapa utilizamos o atalho para o arquivo sem o caminho completo "telecom_users.csv" pois o arquivo estava localizado na mesma pasta em que o projeto está.
+```
+import pandas as pd
+
+tabela = pd.read_csv("telecom_users.csv")
+```
+##
+
+Para `Passo 2` teremos 4 etapas:
+- [x] Visualizar a base de dados.
+- [x] Entender as informações que você tem disponivel.
+- [x] Descobrir o problema da base de dados.
+- [x] Excluir colunas inúteis (informações que não te ajudam, te atrapalham).
+
+Para isso devemos dar um display na tabela e verificar as informações.
+```
+display(tabela)
+```
+Agora que analisamos a tabela, percebemos que a coluna 'Unnamed' não nos servirá para nada, então teremos q excluir ela.
+- Para excluir uma informação de uma tabela, devemos utilizar o comando tabela.drop() e informar um "nome" e um eixo.
+- Para isso devemos saber que o "nome" pode ser o nome ou a linha da tabela, e o eixo utilizamos axis=o -> para o eixo da linha e axis=1 -> para o eixo da coluna.
+- ex: se fosse uma linha especifica ex: 3 / tabela = tabela.drop(3, axis=0)
+```
+tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce")
+```
+##
+
+Para o `Passo 3` precisaremos tratar os dados e isso possui 2 etapas:
+- [x] Resumir sua base de dados
+- [x] Verificar se as informações são tipo correto.
+- [x] Eliminar informações vazias, podem ser colunas ou linhas.
+Para resumir a base de dados utilizamos o comando print(tabela.info())
+```
+print(tabela.info())
+```
+Notamos que a coluta 'Total Gasto' está sendo reconhecida como object(texto) mas ela é do tipo float(com casas decimais), e para isso precisaremos corrigi-la
+com o comando pd.to_numeric() para transformá-la em números e o metodo errors="coerce" para forçar o erro a virar número.
+```
+tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce")
+```
+Após corrigir nosso erro deveremos eliminar qualquer informação vazia que não te prejudique em sua base de dados.
+- O comando dropna() exclui informações vazias, para isso deveremos informar o how="" e o axis.
+- O axis já vimos acima, o how="" pode ser "all" para excluir a linha/coluna se todas as informações dela estiverem vazias ou "any" para excluir a linha/coluna
+se qualquer informação dela estiver vazia.
+- Excluindo tabelas completamentes vazias.
+```
+tabela = tabela.dropna(how="all", axis=1)
+```
+- Excluindo linhas com alguma coisa vazia.
+```
+tabela = tabela.dropna(how="any", axis=0)
+```
+
+##
+
+Agora no `Passo 4` teremos a análise inicial dos dados e nisso deveremos conferir os cancelamentos
+- [x] como estão os cancelamentos? 26%
+
+Analizaremos a coluna 'Churn' que são os cancelamentos das pessoas e utilizaremos o comando .value_counts() para contar com precisão a ocorrencia de cancelamento.
+- Também existem outras funções como .sum(soma) / .average(media) / mean(mediana) / value_counts(quantidade) mas utilizaremos apenas o counts.
+```
+print(tabela["Churn"].value_counts())
+```
+- E também podemos usar o método (normalize=True) para verificar a porcentagem (se for da sua preferência é possível utilizar o comando .map("{:.1%}".format) para 
+formatar a porcentagem.
+```
+print(tabela["Churn"].value_counts(normalize=True).map("{:.1%}".format))
+```
+- E com isso confirmamos os 26% de cancelamento.
+
+##
+
+No `Passo 5` precisaremos descobrir o motivo dos cancelamentos e para isso transformaremos cada uma das colunas em gráficos e analisaremos os dados.
+- Para isso precisaremos instalar plotly, que é um biblioteca de gráficos.
+- Caso você já não tenha o plotly instalado em seu computador, basta ir até uma célula e escrever o comando: 
+```
+!pip install plotly
+```
+- E em seguida basta importá-lo em seu projeto, para isso vamos utilizar o comando:
+```
+import plotly.express as px
+```
+Para transformar todas as colunas de uma vez em gráfico, precisaremos utilizar o método 'for' e passar o seu parâmetro dentro do x= a seguir.
+- Iremos utilizar o comando px.histogram() para criar um gráfico do tipo histograma, e passar nele (nossa tabela, x="a coluna(a nossa está no 'for')", e a color="que é a coluna em relação a outra")
+- Existem outros tipos de gráfico como grafico de barra .bar / linha .line / histograma .histogram, mas só usaremos o histograma.
+- Exemplo de gráficos: https://plotly.com/python/histograms/
+- E iremos exibir o gráfico
+```
+for coluna in tabela.columns:
+    grafico = px.histogram(tabela, x=coluna, color="Churn")
+    grafico.show()
+```
+
+##
+
+E por fim no `Passo 6` basta análisar os dados e anotar suas Conclusões.
+- `Conclusões`:
+
+Clientes que estão há pouco tempo estão cancelando muito
+- Pode estar fazendo alguma promoção que dá o primeiro mês de graça
+- O inicio do serviço pro cliente está sendo muito confuso
+- A primeira experiencia pro cliente ta ruim
+- Podemos criar incentivos nos primeiros mêses - primeiro ano mais barato
+
+Boleto Eletronico tem muito mais cancelamento que as outras formas de pagamento
+- Oferecer desconto nas outras formas de pagamento
+
+Pessoas com contrato mensal tem muito mais chance de cancelar
+- Desconto para pagar a anuídade
+
+Mais serviços o cliente tem (suporte) menos ele cancela
+- Pode oferecer serviços extras quase de graça
+
+Clientes com familia maior tem menos chance de cancelar
+- 2° linha de graça ou desconto
+
+##
+
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
 
 ## Desenvolvedores/Contribuintes :octocat:
