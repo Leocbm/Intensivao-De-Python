@@ -229,5 +229,5 @@ pyautogui.hotkey("ctrl", "enter")
 
 ## Desenvolvedores/Contribuintes :octocat:
 
-| [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |
-| :---: |
+| [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |  [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |  [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |
+| :---: | :---: | :---: 
