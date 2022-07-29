@@ -61,8 +61,24 @@ Aprenda como fazer uma super análise do zero com os conceitos abaixo:
 - `Importação de bibliotecas`
 - `Criação de gráficos usando o plotly`
 
-Após todos esses conhecimentos, seremos capazes de transformar uma tabela cheia de informações, nem um pouco fáceis de serem 
-interpretadas em uma análise super aprofundada que servirão de base para tomada de decisão da gerência. Tudo graças a você! 
+Após todos esses conhecimentos, seremos capazes de transformar uma tabela cheia de informações, nem um pouco fáceis de serem
+interpretadas em uma análise super aprofundada que servirão de base para tomada de decisão da gerência. Tudo graças a você! ☺
+##
+- `Aula 03`
+
+Na terceira aula da Semana do Python, você vai aprender a criar um código para automação de processos. No dia a dia das
+empresas, é muito comum que existam operações manuais que além de extremamente repetitivas (chatas) são suscetíveis a
+erro visto que são feitas manualmente. Vamos aprender como criar um código com o qual você possa resolver esse problema
+sem nem tocar no mouse ☺. Aprenda como fazer uma automação com integração web com os conceitos abaixo:
+- `Importando bases de dados do Excel`
+- `Jupyter Notebook`
+- `Importando bibliotecas`
+- `Webdriver`
+- `Usando Selenium`
+
+Após todos esse aprendizado, seremos capazes de
+transformar um processo extremamente repetitivo
+... em processo automático e sem erros! Tudo graças a você! ☺
 
 ## Pré-requisitos
 
@@ -396,6 +412,179 @@ Clientes com familia maior tem menos chance de cancelar
 
 ##
 
+- PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desafio 03
+
+Para início, nos deparamos com o seguinte desafio:
+
+- `Desafio`: Trabalhamos em uma importadora e o preço dos nossos produtos é vinculado a cotação de:
+- Dólar
+- Euro
+- Ouro
+
+Precisamos pegar na internet, de forma automática, a cotação desses 3 itens e saber quanto devemos cobrar pelos nossos produtos, considerando uma margem de contribuição que temos na nossa base de dados.
+- Base de Dados: https://drive.google.com/drive/folders/1KmAdo593nD8J9QBaZxPOG1yxHZua4Rtv?usp=sharing
+
+##
+
+Agora o próximo passo é pensar em como seria o processo necessário para chegar a solução, e chegamos a essa conclusão:
+
+- `Passo 1`: Pegar a cotação do dólar
+- `Passo 2`: Pegar a cotação do euro
+- `Passo 3`: Pegar a cotação do ouro
+- `Passo 4`: Atualizar a base de dados
+- `Passo 5`: Recalcular os preços
+- `Passo 6`: Exportar a base de dados
+
+##
+
+O `Passo 1` possui quatro etapas necessárias:
+- [x] Abrir o navegador
+- [x] Entrar no google
+- [x] Pesquisar a cotação do dólar no google
+- [x] Pegar a cotação do dólar
+
+Para resolver isso, usaremos o selenium, uma biblioteca de automação de comandos web.
+
+Comandos selenium: https://www.selenium.dev/documentation/ 
+
+E iremos criar uma automação web:
+- Importante: baixar o <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/">webdriver</a>
+- Cada navegador tem seu próprio drive, no meu caso estou utilizando o edge.
+- Para instalar o webdriver, basta copiar o executável baixado e colar na pasta em que seu anaconda estiver instalado.
+- Para saber o local basta pesquisar por Anaconda Prompt em sua barra de pesquisa e iniciar o prompt, na primeira linha informará o local da pasta, no meu caso aparece:
+```
+C:\Users\leona>
+```
+- Após isso basta localizar a pasta Anaconda3 em seu computador e colar o executável dentro.
+- Caso você já não tenha o Selenium instalado em seu computador, basta ir até uma célula do seu jupyter e escrever o comando: 
+```
+!pip install selenium
+```
+- E em seguida basta importá-lo em seu projeto, e importaremos também a função keys para utilizar teclas de atalho na automação.
+```
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+```
+
+Agora podemos realizar os comandos necessários para concluir o `Passo 1`:
+- Para abrir o navegador usaremos o comando 'navegador = webdriver.Edge()'
+```
+navegador = webdriver.Edge()
+```
+- Para entrar no google usaremos o comando 'navegador.get("") com o link do navegador'
+```
+navegador.get("https://www.google.com.br/")
+```
+- Para pesquisar a cotação do dólar, precisaremos primeiramente localizar a aba de escrever a pesquisa, para fazer isso precisaremos descobrir o 'xpath' que é a localização do item desejado na página.
+- Para localizar o xpath do item (barra de pesquisa), precisaremos inspecionar a página com a tecla f12 e clicar na opção de selecionar um item especifico da tela e inspecioná-lo, ou usar o atalho 'ctrl'+'shift'+'c' para inspecionar direto.
+- Após selecionar a barra de pesquisa, ficará marcado um código em azul no código da página.
+![image](https://user-images.githubusercontent.com/54343955/181826772-5ffe91be-11e0-47e7-95a6-df63f703442b.png)
+- Após localizar, basta clicar com o botão direito e ir em cópia -> copiar Xpath.
+![image](https://user-images.githubusercontent.com/54343955/181827520-b1aa2a87-04a3-4c81-a18a-dc65048a1afd.png)
+- Em seguida usaremos o comando .find_element() informando o xpath, e também o comando send_keys() para enviar o texto desejado.
+```
+navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao dolar")
+```
+- Agora pegaremos xpath do botão pesquisar e utilizar o comando send_keys(Keys.ENTER).
+```
+navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
+```
+- E por fim basta achar o xpath da cotação do dólar, mas dessa vez procuraremos um elemento em específico no elemento.
+- Basta inspecionar o valor da cotação do dólar e procurar o valor que precisamos, no nosso caso o 'data-value' e especificá-lo dentro do comando .get_attribute().
+```
+cotacao_dolar = navegador.find_element('xpath','//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
+```
+
+##
+
+Para `Passo 2` basta repetir o `Passo 1` mas dessa vez pesquisando a cotação do euro.
+```
+navegador.get("https://www.google.com.br/")
+navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao euro") # como e qual o codigo /
+navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
+cotacao_euro = navegador.find_element('xpath','//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
+```
+
+##
+
+Para o `Passo 3` precisaremos fazer quase o mesmo processo dos passos anteriores, mas dessa vez no site Melhor câmbio.
+```
+navegador.get("https://www.melhorcambio.com/ouro-hoje#:~:text=O%20valor%20do%20grama%20do,em%20R%24%20292%2C87.")
+cotacao_ouro = navegador.find_element('xpath','//*[@id="comercial"]').get_attribute('value')
+```
+Mas dessa vez o valor do ouro veio com a formatação errada, então usaremos o .replace(",",".") para substituir a vírgula por ponto.
+```
+cotacao_ouro = cotacao_ouro.replace(",",".")
+```
+E usaremos o .quit() para após a análise, a aba de pesquisa fechar automaticamente.
+```
+navegador.quit()
+```
+
+##
+
+Agora o `Passo 4` é calcular os indicadores, para isso precisaremos importar a biblioteca pandas que ja vem instalada com o Jupyter, e aproveitamos e usamos o 'as pd' para apelidar a biblioteca e facilitar o uso.
+```
+import pandas as pd
+```
+- E agora importaremos nossa tabela baixada do link, para isso armazenaremos ela dentro de uma variável com nome de sua escolha e utilizaremos o comando pd.read_excel(r" ") informando o local exato em que o arquivo está localizado em seu computador (Varia de caso para caso), e usaremos um display() com a variável criada para mostrar a tabela na tela.
+```
+tabela = pd.read_excel(r"C://Users/joaol/Downloads/Vendas - Dez.xlsx")
+display(tabela)
+```
+- Com a tabela na tela, analisaremos seus dados e pegaremos os dados que precisamos, e para isso usaremos os comandos a seguir para somar as colunas desejadas.
+```
+faturamento = tabela["Valor Final"].sum()
+quantidade = tabela["Quantidade"].sum()
+```
+
+##
+
+Para o `Passo 5` vamos repetir alguns comandos já utilizados, mas dessa vez para abrir uma nova aba e ir até o gmail
+```
+pyautogui.hotkey("ctrl", "t")
+pyperclip.copy("https://mail.google.com/mail/u/0/#inbox")
+pyautogui.hotkey("ctrl", "v")
+pyautogui.press("enter")
+time.sleep(5)
+```
+## 
+
+E enfim para o `Passo 6` iremos enviar por e-mail o resultado da nossa análise, e para isso precisamos:
+- [x] Clicar no + para escrever nova mensagem.
+- [x] Escrever o email do destinatário.
+- [x] Precionar tab para selecionar o email.
+- [x] Precionar tab novamente para mudar para o bloco descrição.
+- [x] Copiar a mensagem desejada.
+- [x] Utilizar o comando de atalho para colar a mensagem.
+- [x] Pressionar tab novamente para mudar de bloco.
+```
+pyautogui.click(x=40, y=173)
+pyautogui.write("seugmail+diretoria@gmail.com")
+pyautogui.press("tab")
+pyautogui.press("tab")
+pyperclip.copy("Relatório De Vendas")
+pyautogui.hotkey("ctrl", "v")
+pyautogui.press("tab")
+```
+- [x] Criar uma variavel texto formatada com os dados calculados no `Passo 4`
+```texto = f"""
+Prezados, bom dia
+
+O faturamento de ontem foi de: R${faturamento:,.2f}
+A quantidade de produtos foi de: {quantidade:,}
+
+Abs
+Leo"""
+```
+- [x] Copiar e colar o texto na mensagem do gmail e enviar para a diretoria.
+```
+pyperclip.copy(texto)
+pyautogui.hotkey("ctrl", "v")
+pyautogui.hotkey("ctrl", "enter")
+```
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
 
 ## Desenvolvedores/Contribuintes :octocat:
