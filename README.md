@@ -18,6 +18,8 @@
 
 :small_blue_diamond: [Desafio 02](#desafio-02)
 
+:small_blue_diamond: [Desafio 03](#desafio-03)
+
 ## Descrição do projeto 
 
 <p align="justify">
@@ -26,11 +28,11 @@
 
 ## Funcionalidades
 
-:heavy_check_mark: Aula 01 - Automação de Sistemas e Processos com Python 
+:heavy_check_mark: Aula 01 - Automação de Sistemas e Processos com Python.
 
-:heavy_check_mark: Funcionalidade 2  
+:heavy_check_mark: Aula 2 - Análise de dados com Python.
 
-:heavy_check_mark: Funcionalidade 3  
+:heavy_check_mark: Automação Web e Busca de Informações com Python
 
 :heavy_check_mark: Funcionalidade 4  
 
@@ -87,6 +89,8 @@ transformar um processo extremamente repetitivo
 - :warning: [Time](https://www.pythoncentral.io/pythons-time-sleep-pause-wait-sleep-stop-your-code/#:~:text=The%20time.sleep%20%28%29command%20is%20the%20equivalent%20to%20the,of%20seconds%20the%20Python%20program%20should%20pause%20execution.)
 - :warning: [Pandas](https://www.w3schools.com/python/pandas/default.asp)
 - :warning: [Pyperclip](https://pypi.org/project/pyperclip/)
+- :warning: [Selenium](https://www.selenium.dev/)
+- :warning: [Webdriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 
 ## Como rodar a aplicação :arrow_forward:
 
@@ -525,66 +529,46 @@ navegador.quit()
 
 ##
 
-Agora o `Passo 4` é calcular os indicadores, para isso precisaremos importar a biblioteca pandas que ja vem instalada com o Jupyter, e aproveitamos e usamos o 'as pd' para apelidar a biblioteca e facilitar o uso.
+Agora o `Passo 4` basta importarmos nossa tabela com o pandas e analisar o que precisamos modificar e atualizar ela.
+- Deixei o arquivo 'Produtos.xlsx' na mesma pasta do código para facilitar.
 ```
 import pandas as pd
-```
-- E agora importaremos nossa tabela baixada do link, para isso armazenaremos ela dentro de uma variável com nome de sua escolha e utilizaremos o comando pd.read_excel(r" ") informando o local exato em que o arquivo está localizado em seu computador (Varia de caso para caso), e usaremos um display() com a variável criada para mostrar a tabela na tela.
-```
-tabela = pd.read_excel(r"C://Users/joaol/Downloads/Vendas - Dez.xlsx")
+
+tabela = pd.read_excel("Produtos.xlsx")
 display(tabela)
-```
-- Com a tabela na tela, analisaremos seus dados e pegaremos os dados que precisamos, e para isso usaremos os comandos a seguir para somar as colunas desejadas.
-```
-faturamento = tabela["Valor Final"].sum()
-quantidade = tabela["Quantidade"].sum()
 ```
 
 ##
 
-Para o `Passo 5` vamos repetir alguns comandos já utilizados, mas dessa vez para abrir uma nova aba e ir até o gmail
+Para o `Passo 5` teremos três passos:
+- [x] Atualizar as cotações com os dados obtidos.
+- [x] Atualizar o preço de compra.
+- [x] Atualizar o preço de venda.
+
+Para atualizar as cotações teremos que verificar todas as linhas e trocar a cotação antiga pela nova cotação adiquirida pela automação.
+- Usaremos o comando a seguir:
 ```
-pyautogui.hotkey("ctrl", "t")
-pyperclip.copy("https://mail.google.com/mail/u/0/#inbox")
-pyautogui.hotkey("ctrl", "v")
-pyautogui.press("enter")
-time.sleep(5)
+tabela.loc[tabela["Moeda"]=="Dólar", "Cotação"] = float(cotacao_dolar)
+tabela.loc[tabela["Moeda"]=="Euro", "Cotação"] = float(cotacao_euro)
+tabela.loc[tabela["Moeda"]=="Ouro", "Cotação"] = float(cotacao_ouro)
+```
+Atualizaremos o preço de compra, multiplicando a coluna "Preço original" com a coluna "Cotação":
+```
+tabela["Preço de Compra"] = tabela["Preço Original"] * tabela["Cotação"]
+```
+E atualizaremos o preço de venda, multiplicando a coluna "Preço de Compra" com a coluna "Margem":
+```
+tabela["Preço de Venda"] = tabela["Preço de Compra"] * tabela["Margem"]
 ```
 ## 
 
-E enfim para o `Passo 6` iremos enviar por e-mail o resultado da nossa análise, e para isso precisamos:
-- [x] Clicar no + para escrever nova mensagem.
-- [x] Escrever o email do destinatário.
-- [x] Precionar tab para selecionar o email.
-- [x] Precionar tab novamente para mudar para o bloco descrição.
-- [x] Copiar a mensagem desejada.
-- [x] Utilizar o comando de atalho para colar a mensagem.
-- [x] Pressionar tab novamente para mudar de bloco.
+E enfim para o `Passo 6` iremos exportar nossa tabela.
+- Nessa parte devemos ter cuidado, pois se exportar-mos a tabela com o mesmo nome da original a tabela original será perdida, então daremos um novo nome a ela.
+- E colocaremos o parâmetro index=False para o arquivo não ir com o indice para a planilha.
 ```
-pyautogui.click(x=40, y=173)
-pyautogui.write("seugmail+diretoria@gmail.com")
-pyautogui.press("tab")
-pyautogui.press("tab")
-pyperclip.copy("Relatório De Vendas")
-pyautogui.hotkey("ctrl", "v")
-pyautogui.press("tab")
+tabela.to_excel("Produtos Novo.xlsx", index=False)
 ```
-- [x] Criar uma variavel texto formatada com os dados calculados no `Passo 4`
-```texto = f"""
-Prezados, bom dia
 
-O faturamento de ontem foi de: R${faturamento:,.2f}
-A quantidade de produtos foi de: {quantidade:,}
-
-Abs
-Leo"""
-```
-- [x] Copiar e colar o texto na mensagem do gmail e enviar para a diretoria.
-```
-pyperclip.copy(texto)
-pyautogui.hotkey("ctrl", "v")
-pyautogui.hotkey("ctrl", "enter")
-```
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
 
 ## Desenvolvedores/Contribuintes :octocat:
