@@ -23,16 +23,16 @@
 ## Descrição do projeto 
 
 <p align="justify">
-  Meu primeiro projeto de automação de sistemas e automação web utilizando o Jupyter Notebook. 
+  Meu primeiro projeto usando o Jupyter Notebook e minha primeira experiência abordando temas como Automação De Sistemas e Processos, Análise De Dados, Automação Web, Busca de Informações e a Utilização de IA para a Previsão de Vendas.
 </p>
 
 ## Funcionalidades
 
 :heavy_check_mark: Aula 01 - Automação de Sistemas e Processos com Python.
 
-:heavy_check_mark: Aula 2 - Análise de dados com Python.
+:heavy_check_mark: Aula 02 - Análise de dados com Python.
 
-:heavy_check_mark: Automação Web e Busca de Informações com Python
+:heavy_check_mark: Aula 03 - Automação Web e Busca de Informações com Python.
 
 :heavy_check_mark: Funcionalidade 4  
 
@@ -78,15 +78,12 @@ sem nem tocar no mouse ☺. Aprenda como fazer uma automação com integração 
 - `Webdriver`
 - `Usando Selenium`
 
-Após todos esse aprendizado, seremos capazes de
-transformar um processo extremamente repetitivo
-... em processo automático e sem erros! Tudo graças a você! ☺
+Após todos esse aprendizado, seremos capazes de transformar um processo extremamente repetitivo em processo automático e sem erros! Tudo graças a você! ☺
 
 ## Pré-requisitos
 
 - :warning: [Anaconda](https://www.anaconda.com/)
 - :warning: [Jupyter Notebook](https://jupyter.org/)
-- :warning: [Time](https://www.pythoncentral.io/pythons-time-sleep-pause-wait-sleep-stop-your-code/#:~:text=The%20time.sleep%20%28%29command%20is%20the%20equivalent%20to%20the,of%20seconds%20the%20Python%20program%20should%20pause%20execution.)
 - :warning: [Pandas](https://www.w3schools.com/python/pandas/default.asp)
 - :warning: [Pyperclip](https://pypi.org/project/pyperclip/)
 - :warning: [Selenium](https://www.selenium.dev/)
@@ -134,7 +131,7 @@ O `Passo 1` possui três etapas necessárias:
 - [x] Escrever o link no navegador
 - [x] Apertar 'Enter'
 
-Para resolver isso, vamos usar o pyautogui, uma biblioteca de automação de comandos do mouse e do teclado
+Para resolver isso, vamos usar o pyautogui, uma biblioteca de automação de comandos do mouse e do teclado.
 
 Comandos pyautogui: https://pyautogui.readthedocs.io/en/latest/quickstart.html
 
@@ -149,15 +146,23 @@ import pyperclip
 ```
 Agora podemos realizar os comandos necessários para concluir o `Passo 1`:
 - Como o pyautogui realiza várias ações rapidamente, o navegador não consegue acompanhar os comandos, então o comando pyautogui.PAUSE = 1 faz com que seja realizado uma pausa de 1 segundo entre cada comando realizado. 
-- Agora precisamos abrir uma nova aba do navegador, para isso usamos o atalho "ctrl", "t" dentro do comando pyautogui.hotkey().
-- Realizamos a cópia do link fornecido utilizando o pyperclip.copy().
-- Em seguida utilizamos novamente a função pyautogui.hotkey() mas dessa vez com o atalho "ctrl", "v" que é o atalho colar.
-- Utilizamos o comando pyautogui.press() para pressionar a tecla "enter" e entrar no link.
 ```
 pyautogui.PAUSE = 1
+```
+- Agora precisamos abrir uma nova aba do navegador, para isso usamos o atalho "ctrl", "t" dentro do comando pyautogui.hotkey().
+```
 pyautogui.hotkey("ctrl", "t")
+```
+- Realizamos a cópia do link fornecido utilizando o pyperclip.copy().
+```
 pyperclip.copy("https://drive.google.com/drive/folders/149xknr9JvrlEnhNWO49zPcw0PW5icxga?usp=sharing")
+```
+- Em seguida utilizamos novamente a função pyautogui.hotkey() mas dessa vez com o atalho "ctrl", "v" que é o atalho colar.
+```
 pyautogui.hotkey("ctrl", "v")
+```
+- Utilizamos o comando pyautogui.press() para pressionar a tecla "enter" e entrar no link.
+```
 pyautogui.press("enter")
 ```
 - E por fim importaremos a biblioteca time para utilizar a função time.sleep() e colocar o tempo desejado para que a página carregue por completo.
@@ -183,7 +188,7 @@ pyautogui.position()
 ```
 - Com esse comando você terá 5 segundos para ficar com o mouse no local desejado e a posição será mostrada no comando pyautogui.position()
 - Lembrando que a posição varia para cada tipo de resolução de tela, e também abas menores ou em tela cheia, então o comando utilizado nesse exemplo pode não funcionar em seu computador e será necessário atualizar as posições de acordo com a sua situação.
-Com a posição do local do click descoberta, vamos agora utilizar o comando pyautogui.click("posição descoberta", clicks=2) para clicar duas vezes na pasta e também o time.sleep(2) para o carregamento da página.
+- Com a posição do local do click descoberta, vamos agora utilizar o comando pyautogui.click("posição descoberta", clicks=2) para clicar duas vezes na pasta e também o time.sleep(2) para o carregamento da página.
 ```
 pyautogui.click(x=878, y=676, clicks=2)
 time.sleep(2)
@@ -191,7 +196,7 @@ time.sleep(2)
 
 ##
 
-O `Passo 3` agora é realizar o download do arquivo, para isso precisaremos descobrir a posição do arquivo + a posição do 'Mais Ações'(conhecido com 3 pontos) + a opção de baixar(dentro dos 3 pontos) utilizando o pyautogui.click(x=, y=), e por fim mais um sleep para dar tempo do arquivo baixar.
+O `Passo 3` agora é realizar o download do arquivo, para isso precisaremos descobrir a posição do arquivo + a posição do 'Mais Ações' (conhecido com 3 pontos) + a opção de baixar (dentro dos 3 pontos) utilizando o pyautogui.click(x=, y=), e por fim mais um sleep para dar tempo do arquivo baixar.
 ```
 pyautogui.click(x=1000, y=919)
 pyautogui.click(x=3323, y=406)
