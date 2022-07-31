@@ -1,6 +1,6 @@
 <h1>Intensivão de Python</h1> 
 
-> Status do Projeto: :warning: Em desenvolvimento
+> Status do Projeto: :heavy_check_mark: Concluído
 
 ### Tópicos 
 
@@ -20,6 +20,8 @@
 
 :small_blue_diamond: [Desafio 03](#desafio-03)
 
+:small_blue_diamond: [Desafio 04](#desafio-04)
+
 ## Descrição do projeto 
 
 <p align="justify">
@@ -34,7 +36,7 @@
 
 :heavy_check_mark: Aula 03 - Automação Web e Busca de Informações com Python.
 
-:heavy_check_mark: Funcionalidade 4  
+:heavy_check_mark: Aula 04 - Projeto Ciência de Dados - Previsão de Vendas
 
 
 ## Objetivos
@@ -49,8 +51,11 @@ relatórios do absoluto zero. Para isso, vamos passar por conceitos como:
 - `Uso de bibliotecas (pyautogui, time, pandas e pyperclip)`
 - `Enviar e-mails automaticamente`
 
-Após todos esses conhecimentos, seremos capazes de transformar uma tabela cheia de informações, nem um pouco fáceis de serem interpretadas, em uma ferramenta automatizada de geração e envio
-automático de relatórios para um destinatário pré-definido.
+Após todos esses conhecimentos, seremos capazes de transformar uma tabela cheia de informações, nem um pouco fáceis de serem interpretadas, em uma ferramenta automatizada de geração e envio automático de relatórios para um destinatário pré-definido.
+
+![image](https://user-images.githubusercontent.com/54343955/182050109-9da4cb8c-8ce8-405a-ac26-e74427784320.png)
+
+
 ##
 - `Aula 02`
 
@@ -65,10 +70,13 @@ Aprenda como fazer uma super análise do zero com os conceitos abaixo:
 
 Após todos esses conhecimentos, seremos capazes de transformar uma tabela cheia de informações, nem um pouco fáceis de serem
 interpretadas em uma análise super aprofundada que servirão de base para tomada de decisão da gerência. Tudo graças a você! ☺
+
+![image](https://user-images.githubusercontent.com/54343955/182050141-b0f397ac-e73d-4a1d-bdc0-e6534ebf89d0.png)
+
 ##
 - `Aula 03`
 
-Na terceira aula da Semana do Python, você vai aprender a criar um código para automação de processos. No dia a dia das
+Na terceira aula do Intensivão Python, você vai aprender a criar um código para automação de processos. No dia a dia das
 empresas, é muito comum que existam operações manuais que além de extremamente repetitivas (chatas) são suscetíveis a
 erro visto que são feitas manualmente. Vamos aprender como criar um código com o qual você possa resolver esse problema
 sem nem tocar no mouse ☺. Aprenda como fazer uma automação com integração web com os conceitos abaixo:
@@ -78,7 +86,25 @@ sem nem tocar no mouse ☺. Aprenda como fazer uma automação com integração 
 - `Webdriver`
 - `Usando Selenium`
 
+![image](https://user-images.githubusercontent.com/54343955/182050169-69bd2e75-9f39-4cef-8748-365d25fda79e.png)
+
+
 Após todos esse aprendizado, seremos capazes de transformar um processo extremamente repetitivo em processo automático e sem erros! Tudo graças a você! ☺
+##
+- `Aula 04`
+
+Na quarta aula do Intensivão Python você vai aprender a criar um código de ciência de dados para criação de um modelo de
+previsão do absoluto zero. Para isso, vamos passar por conceitos como:
+- `Jupyter Notebook`
+- `Etapas de um projeto de Ciência de Dados`
+- `Gráficos usando Python`
+- `Uso de bibliotecas`
+- `Modelos de Inteligência Artificial`
+
+Após todos esses conhecimentos, seremos capazes detransformar uma tabela cheia de informações, nem um pouco fáceis de serem interpretadas em um modelo de previsão de Vendas utilizando Inteligência Artificial.
+
+![image](https://user-images.githubusercontent.com/54343955/182050089-343b6aee-74a7-4fea-be04-27fe32f571c8.png)
+
 
 ## Pré-requisitos
 
@@ -88,6 +114,10 @@ Após todos esse aprendizado, seremos capazes de transformar um processo extrema
 - :warning: [Pyperclip](https://pypi.org/project/pyperclip/)
 - :warning: [Selenium](https://www.selenium.dev/)
 - :warning: [Webdriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
+- :warning: [Plotly](https://plotly.com/)
+- :warning: [Matplotlib](https://matplotlib.org/)
+- :warning: [Seaborn](http://seaborn.pydata.org/)
+- :warning: [Scikit-learn](https://scikit-learn.org/stable/index.html)
 
 ## Como rodar a aplicação :arrow_forward:
 
@@ -573,6 +603,170 @@ E enfim para o `Passo 6` iremos exportar nossa tabela.
 ```
 tabela.to_excel("Produtos Novo.xlsx", index=False)
 ```
+
+- PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desafio 04
+
+Para início, nos deparamos com o seguinte desafio:
+
+- `Desafio`: Nosso desafio é conseguir prever as vendas que vamos ter em determinado período com base nos gastos em anúncios nas 3 grandes redes que a empresa Hashtag investe: TV, Jornal e Rádio.
+- Base de Dados: https://drive.google.com/drive/folders/1o2lpxoi9heyQV1hIlsHXWSfDkBPtze-V?usp=sharing
+
+##
+
+Agora o próximo passo é pensar em como seria o processo necessário para chegar a solução, e chegamos a essa conclusão:
+
+- `Passo 1`: Entendimento do Desafio
+- `Passo 2`: Entendimento da Área/Empresa
+- `Passo 3`: Extração/Obtenção de Dados
+- `Passo 4`: Ajuste de Dados (Tratamento/Limpeza)
+- `Passo 5`: Análise Exploratória
+- `Passo 6`: Modelagem + Algoritmos (Aqui que entra a Inteligência Artificial, se necessário)
+- `Passo 7`: Interpretação de Resultados
+
+##
+
+O `Passo 1` e `Passo 2` devemos refletir sobre onde queremos chegar ao longo do projeto, pois deveremos tomar varias decsões, se uma coisa ta boa ou ta ruim, se usa um recurso ou outro, etc.
+- Imagine que voce faça uma precisão de vendas de 95% de precisão, parece bom, mas se fosse para a eficacia de um medicamento, talvez 95% não estejam tão bom.
+- Então isso nos levará a tomar as melhores decisões no projeto.
+
+Para o `Passo 3` fazeremos a importação da base de dados.
+- Para isso usaremos a biblioteca do pandas com o nosso arquivos 'advertising.csv' e daremos um display para exibi-la na tela.
+- A biblioteca pandas já vem instalada junto ao Jupyter.
+- Comandos pandas: https://pandas.pydata.org/docs/
+```
+import pandas as pd
+tabela = pd.read_csv("advertising.csv")
+display(tabela)
+```
+##
+
+Agora o `Passo 4`, tratar a base de dados e deixar ela mais prática.
+- Faremos o uso do método .info()
+```
+print(tabela.info())
+```
+- Analizamos a nossa tabela, porém ela já está correta e não necessita alterações.
+
+##
+
+Para o `Passo 5` faremos a análise preliminar para tentar entender como as informações estão se comportando.
+- Precisaremos fazer a utilização de três bibliotecas:
+- matplotlib -> Gráficos
+- seaborn -> Gráficos
+- scikit-learn -> IA
+- Caso você já não tenha as bibliotecas instaladas em seu computador, basta ir até uma célular e digitar o comando:
+```
+# !pip install matplotlib
+# !pip install seaborn
+# !pip install scikit-learn
+```
+
+Após isso importaremos nossas bibliotecas.
+- Usaremos o comando a seguir:
+```
+import seaborn as sns
+import matplotlib.pyplot as plt
+```
+Precisaremos descobrir a correlação de cada item da nossa tabela, para isso usaremos o comando tabela.corr():
+- Mas para melhorar a visualização, transformaremos ela em um gráfico de mapa de calor utilizando o seaborn com o comando .heatmap.
+```
+sns.heatmap(tabela.corr(), cmap="Wistia", annot=True)
+```
+- Utilizamos também o "Wistia" para melhorar as cores do gráfico e também o annot=True para anotar os valores dentro do gráfico.
+![image](https://user-images.githubusercontent.com/54343955/182047985-57e57a3e-a5bd-4a1c-8b4c-7c2beccdf1c6.png)
+
+## 
+
+Para o `Passo 6` criaremos nossa IA para realizar testes.
+- Pegaremos nossa base de dados e dividiremos ela em dados de treino e em dados de teste.
+- Ou seja, enviaremos dados de treino para a IA aprender, e dados de tespe para testar se a IA aprendeu.
+- Dividiremos em dados de x e de y.
+- y -> quem você quer prever. (vendas)
+- x -> é todo o resto. (quem você vai usar para fazer a previsão)
+```
+x = tabela[["TV", "Radio", "Jornal"]]
+y = tabela["Vendas"]
+```
+- O próximo passo é dividir novamente nossa tabela em quatro partes para testar nossa IA, separando em dois o x e y.
+- x_treino, x_teste, y_treino, y_teste
+- Na prática ficaria assim:
+
+![image](https://user-images.githubusercontent.com/54343955/182048614-e8675b41-8beb-4afb-b7cc-59dc32db5db5.png)
+- Para fazer essa divisão utilizaremos um método do scikit-learn chamado train_test_split.
+
+```
+from sklearn.model_selection import train_test_split
+
+x_treino, x_teste, y_treino, y_teste = train_test_split(x, y, test_size=0.3)
+```
+- O test_size-0.3 divide os dados de treino e os dados de teste em 30% teste e 70% treino.
+
+Após isso precisaremos escolher os modelos de IA que vamos usar, neste projeto utilizaremos dois modelos:
+- Regressão Linear
+- RandomForest (Árvore de Decisão)
+
+Para isso devemos:
+- [x] importar os modelos de IA
+```
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+```
+- [x] Criar a IA
+```
+modelo_regressaoLinear = LinearRegression()
+modelo_arvoreDecisao = RandomForestRegressor()
+```
+- [x] Treinar a IA.
+```
+modelo_regressaoLinear.fit(x_treino, y_treino)
+modelo_arvoreDecisao.fit(x_treino, y_treino)
+```
+Agora testaremos a previsão dos nossos modelos de IA, e decidiremos qual o melhor modelo.
+- Vamos usar o R² que diz a % que o nosso modelo consegue explicar o que acontece.
+- [x] Fazer previsão dos testes
+```
+previsao_regressaoLiner = modelo_regressaoLinear.predict(x_teste)
+previsao_arvoreDecisao = modelo_arvoreDecisao.predict(x_teste)
+```
+- [x] Utilizar o R² para descobrir qual dos modelos teve a previsão mais próxima dos nossos testes. 
+```
+from sklearn.metrics import r2_score
+
+print(r2_score(y_teste, previsao_regressaoLiner))
+print(r2_score(y_teste, previsao_arvoreDecisao))
+```
+E com isso descobrimos que o modelo arvoreDecisao se comportou melhor com o nosso teste, com 94%.
+
+![image](https://user-images.githubusercontent.com/54343955/182049382-cde9f884-f912-45ca-a872-114b8c63e905.png)
+
+E para demonstrar melhor, podemos criar um gráfico para demonstrar visualmente como nossos modelos reagiram em relação aos nossos testes.
+- [x] Criação do gráfico
+```
+tabela_auxiliar = pd.DataFrame()
+tabela_auxiliar["y_teste"] = y_teste
+tabela_auxiliar["arvore decisao"] = previsao_arvoreDecisao
+tabela_auxiliar["regressao linear"] = previsao_regressaoLiner
+
+plt.figure(figsize=(15,6))
+sns.lineplot(data=tabela_auxiliar)
+plt.show()
+```
+![image](https://user-images.githubusercontent.com/54343955/182049250-5615a1c7-78aa-4c58-afce-68f1c34554b9.png)
+
+E por fim, para o `Passo 7` interpretaremos os resultados e aprenderemos a fazer as previsões.
+- Para isso basta importar nossa tabela com valores que queremos testar as nossas vendas.
+```
+novos = pd.read_csv("novos.csv")
+display(novos)
+```
+- E basta utilizar o modelo arvore de decisão com a função .predict(), na nossa nova tabela, e teremos o resultado de nossos testes.
+```
+print(modelo_arvoreDecisao.predict(novos))
+```
+![image](https://user-images.githubusercontent.com/54343955/182049642-e380a07c-1d58-4e83-9cbf-e7796c98c5c1.png)
+
 
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
 
