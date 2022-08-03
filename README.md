@@ -20,6 +20,8 @@
 
 :small_blue_diamond: [Desafio 02](#desafio-02)
 
+:small_blue_diamond: [Desafio 02 Funcionando](#desafio-02-funcionando)
+
 :small_blue_diamond: [Desafio 03](#desafio-03)
 
 :small_blue_diamond: [Desafio 04](#desafio-04)
@@ -338,7 +340,6 @@ pyautogui.hotkey("ctrl", "enter")
 ## Desafio 01 Funcionando
 ![Automação de Sistemas e Processos com Python](https://user-images.githubusercontent.com/54343955/182669725-766218ed-2be4-4e1c-8cc3-183c767a784f.gif)
 
-
 ## Desafio 02
 
 Para início, nos deparamos com o seguinte desafio:
@@ -380,11 +381,14 @@ import pandas as pd
 
 tabela = pd.read_csv("telecom_users.csv")
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182672808-2297d8a7-ba26-47b8-8822-5d009294277d.png)
+
 ##
 
 Para `Passo 2` teremos 4 etapas:
 - [x] Visualizar a base de dados.
-- [x] Entender as informações que você tem disponivel.
+- [x] Entender as informações que você tem disponível.
 - [x] Descobrir o problema da base de dados.
 - [x] Excluir colunas inúteis (informações que não te ajudam, te atrapalham).
 
@@ -395,22 +399,25 @@ display(tabela)
 Agora que analisamos a tabela, percebemos que a coluna 'Unnamed' não nos servirá para nada, então teremos q excluir ela.
 - Para excluir uma informação de uma tabela, devemos utilizar o comando tabela.drop() e informar um "nome" e um eixo.
 - Para isso devemos saber que o "nome" pode ser o nome ou a linha da tabela, e o eixo utilizamos axis=o -> para o eixo da linha e axis=1 -> para o eixo da coluna.
-- ex: se fosse uma linha especifica ex: 3 / tabela = tabela.drop(3, axis=0)
 ```
-tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce")
+tabela = tabela.drop("Unnamed: 0", axis=1))
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182673698-ca9e4d3f-cf9e-4ce6-a6ff-839e5e6c6161.png)
+
 ##
 
-Para o `Passo 3` precisaremos tratar os dados e isso possui 2 etapas:
+Para o `Passo 3` precisaremos tratar os dados e isso possui 3 etapas:
 - [x] Resumir sua base de dados
 - [x] Verificar se as informações são tipo correto.
 - [x] Eliminar informações vazias, podem ser colunas ou linhas.
+
 Para resumir a base de dados utilizamos o comando print(tabela.info())
 ```
 print(tabela.info())
 ```
-Notamos que a coluta 'Total Gasto' está sendo reconhecida como object(texto) mas ela é do tipo float(com casas decimais), e para isso precisaremos corrigi-la
-com o comando pd.to_numeric() para transformá-la em números e o metodo errors="coerce" para forçar o erro a virar número.
+- Notamos que a coluta 'Total Gasto' está sendo reconhecida como object(texto) mas ela é do tipo float(com casas decimais)
+- Precisaremos corrigi-la com o comando pd.to_numeric() para transformá-la em números e o metodo errors="coerce" para forçar o erro a virar número.
 ```
 tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce")
 ```
@@ -426,6 +433,8 @@ tabela = tabela.dropna(how="all", axis=1)
 ```
 tabela = tabela.dropna(how="any", axis=0)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182674700-2d83aa66-5f34-4249-b54a-bd2c16bf1555.png)
 
 ##
 
@@ -443,6 +452,8 @@ formatar a porcentagem.
 print(tabela["Churn"].value_counts(normalize=True).map("{:.1%}".format))
 ```
 - E com isso confirmamos os 26% de cancelamento.
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182674892-a8516bd9-d58c-4e27-977e-0bce8f708af0.png)
 
 ##
 
@@ -466,33 +477,38 @@ for coluna in tabela.columns:
     grafico = px.histogram(tabela, x=coluna, color="Churn")
     grafico.show()
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182675299-d1d239d9-352d-4ecc-8948-24c5a5abce58.png)
 
 ##
 
 E por fim no `Passo 6` basta análisar os dados e anotar suas Conclusões.
 - `Conclusões`:
 
-Clientes que estão há pouco tempo estão cancelando muito
+- [x] Clientes que estão há pouco tempo estão cancelando muito
 - Pode estar fazendo alguma promoção que dá o primeiro mês de graça
 - O inicio do serviço pro cliente está sendo muito confuso
 - A primeira experiencia pro cliente ta ruim
 - Podemos criar incentivos nos primeiros mêses - primeiro ano mais barato
 
-Boleto Eletronico tem muito mais cancelamento que as outras formas de pagamento
+- [x] Boleto Eletronico tem muito mais cancelamento que as outras formas de pagamento
 - Oferecer desconto nas outras formas de pagamento
 
-Pessoas com contrato mensal tem muito mais chance de cancelar
+- [x] Pessoas com contrato mensal tem muito mais chance de cancelar
 - Desconto para pagar a anuídade
 
-Mais serviços o cliente tem (suporte) menos ele cancela
+- [x] Mais serviços o cliente tem (suporte) menos ele cancela
 - Pode oferecer serviços extras quase de graça
 
-Clientes com familia maior tem menos chance de cancelar
+- [x] Clientes com familia maior tem menos chance de cancelar
 - 2° linha de graça ou desconto
-
-##
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182675820-4e88375a-55a1-4aad-8966-26e43fd15004.png)
 
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desafio 02 Funcionando
+![Análise de dados com Python](https://user-images.githubusercontent.com/54343955/182684440-1fa7ee89-8c16-4d18-bc06-dca9c7d5a770.gif)
 
 ## Desafio 03
 
