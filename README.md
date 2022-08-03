@@ -16,6 +16,8 @@
 
 :small_blue_diamond: [Desafio 01](#desafio-01)
 
+:small_blue_diamond: [Desafio 01 Funcionando](#desafio-01-funcionando)
+
 :small_blue_diamond: [Desafio 02](#desafio-02)
 
 :small_blue_diamond: [Desafio 03](#desafio-03)
@@ -328,9 +330,14 @@ pyperclip.copy(texto)
 pyautogui.hotkey("ctrl", "v")
 pyautogui.hotkey("ctrl", "enter")
 ```
-- PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
 - Nosso código:
 ![image](https://user-images.githubusercontent.com/54343955/182661621-6621d51e-40ff-41f9-9af9-13ff4c07d3f1.png)
+
+- PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desafio 01 Funcionando
+![Automação de Sistemas e Processos com Python](https://user-images.githubusercontent.com/54343955/182669725-766218ed-2be4-4e1c-8cc3-183c767a784f.gif)
+
 
 ## Desafio 02
 
