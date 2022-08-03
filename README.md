@@ -25,7 +25,7 @@
 ## Descrição do projeto 
 
 <p align="justify">
-  Meu primeiro projeto usando o Jupyter Notebook e minha primeira experiência abordando temas como Automação De Sistemas e Processos, Análise De Dados, Automação Web, Busca de Informações e a Utilização de IA para a Previsão de Vendas.
+  Meu primeiro projeto usando o Jupyter Notebook e minha primeira experiência abordando temas como Automação De Sistemas e Processos, Análise De Dados, Automação Web, Busca de Informações e a Utilização de Inteligência Artificial para uma Previsão de Vendas.
 </p>
 
 ## Funcionalidades
@@ -126,19 +126,29 @@ No terminal, clone o projeto:
 ```
 git clone https://github.com/Leocbm/Intensivao-De-Python.git
 ```
-- Vá até o seu terminal, caso não saiba basta pesquisar por 'Prompt De Comando' na barra de pesquisa:
+- Vá até o seu terminal, caso não saiba basta pesquisar por 'git CMD' na barra de pesquisa:
+<img src="https://user-images.githubusercontent.com/54343955/182642752-1fd19d66-3b1c-46c5-9882-873eb1c3b8fc.png" width="480">
+
 - Navegue até a pasta desejada com o comando 'cd', exemplo se sua pasta estiver no Desktop:
+
 ``` 
 cd Desktop/Pasta
 ```
 - Na pasta, basta escrever o comando acima.
+<img src="https://user-images.githubusercontent.com/54343955/182644414-aa4c1dc0-9c79-4472-8a1c-fcaedee9581e.png" width="580">
+
+- Ou se preferir pode utilizar o terminal da própria IDE/Editor de códigos:
+- Exemplo usando o terminal do Jupyter:
+<img src="https://user-images.githubusercontent.com/54343955/182663195-e6861872-0537-4b01-8782-82f5d9ec912d.png" width="880">
+
+- Pronto! 😄
 - Lembre-se de ter o <a href="https://git-scm.com/">git</a> instalado.
 
 ## Desafio 01
 
 Para início, nos deparamos com o seguinte desafio:
 
-- `Desafio`: Todos os dias, o nosso sistema atualiza as vendas do dia anterior. O seu trabalho diário, como analista, é enviar um e-mail para a diretoria, assim que começar a trabalhar, com o faturamento e a quantidade de produtos vendidos no dia anterior
+- `Desafio`: Todos os dias, o nosso sistema atualiza as vendas do dia anterior. O seu trabalho diário, como analista, é enviar um e-mail para a diretoria, assim que começar a trabalhar, com o faturamento e a quantidade de produtos vendidos no dia anterior.
 
 - E-mail da diretoria: seugmail+diretoria@gmail.com
 - Local onde o sistema disponibiliza as vendas do dia anterior: https://drive.google.com/drive/folders/149xknr9JvrlEnhNWO49zPcw0PW5icxga?usp=sharing
@@ -174,6 +184,9 @@ Comandos pyautogui: https://pyautogui.readthedocs.io/en/latest/quickstart.html
 import pyautogui
 import pyperclip
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182649181-449fe475-5240-4160-8f72-9fc9f0334167.png)
+
 Agora podemos realizar os comandos necessários para concluir o `Passo 1`:
 - Como o pyautogui realiza várias ações rapidamente, o navegador não consegue acompanhar os comandos, então o comando pyautogui.PAUSE = 1 faz com que seja realizado uma pausa de 1 segundo entre cada comando realizado. 
 ```
@@ -202,6 +215,8 @@ import time
 ```
 time.sleep(5)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182650723-312b98a0-e165-4e85-9adb-0e70989e9a27.png)
 - Consideramos que o seu navegador ja esteja aberto para os comandos acima, mas caso queira abrir o programa do zero basta acrescentar ao inicio do código:
 ```
 # pyautogui.press("win")
@@ -223,16 +238,25 @@ pyautogui.position()
 pyautogui.click(x=878, y=676, clicks=2)
 time.sleep(2)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182651410-4ecf2753-07d2-4666-9b7b-a737656b969f.png)
 
 ##
 
-O `Passo 3` agora é realizar o download do arquivo, para isso precisaremos descobrir a posição do arquivo + a posição do 'Mais Ações' (conhecido com 3 pontos) + a opção de baixar (dentro dos 3 pontos) utilizando o pyautogui.click(x=, y=), e por fim mais um sleep para dar tempo do arquivo baixar.
+O `Passo 3` agora é realizar o download do arquivo, para isso precisaremos descobrir:
+- [x] A posição do arquivo
+- [x] A posição do 'Mais Ações' (conhecido com 3 pontos)
+- [x] A opção de baixar (dentro dos 3 pontos)
+
+E utilizar o pyautogui.click(x=, y=), junto a um .sleep() para dar tempo do arquivo baixar.
 ```
 pyautogui.click(x=1000, y=919)
 pyautogui.click(x=3323, y=406)
 pyautogui.click(x=2748, y=1529)
 time.sleep(5)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182652294-c12c61e7-b016-4aa6-9a57-50ed84588a8d.png)
 
 ##
 
@@ -240,16 +264,21 @@ Agora o `Passo 4` é calcular os indicadores, para isso precisaremos importar a 
 ```
 import pandas as pd
 ```
-- E agora importaremos nossa tabela baixada do link, para isso armazenaremos ela dentro de uma variável com nome de sua escolha e utilizaremos o comando pd.read_excel(r" ") informando o local exato em que o arquivo está localizado em seu computador (Varia de caso para caso), e usaremos um display() com a variável criada para mostrar a tabela na tela.
+- E agora importaremos nossa tabela baixada do link
+- Para isso armazenaremos ela dentro de uma variável com nome de sua escolha 
+- Utilizaremos o comando pd.read_excel(r" ") informando o local exato em que o arquivo está localizado em seu computador (Varia de caso para caso)
+- E usaremos um display() com a variável criada para mostrar a tabela na tela
 ```
 tabela = pd.read_excel(r"C://Users/joaol/Downloads/Vendas - Dez.xlsx")
 display(tabela)
 ```
-- Com a tabela na tela, analisaremos seus dados e pegaremos os dados que precisamos, e para isso usaremos os comandos a seguir para somar as colunas desejadas.
+- Com a tabela na tela, analisaremos seus dados e pegaremos os dados que precisamos, para isso usaremos os comandos a seguir para somar as colunas desejadas.
 ```
 faturamento = tabela["Valor Final"].sum()
 quantidade = tabela["Quantidade"].sum()
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182655110-49f3a7be-95f6-4820-b43f-a1e60d854d95.png)
 
 ##
 
@@ -261,6 +290,9 @@ pyautogui.hotkey("ctrl", "v")
 pyautogui.press("enter")
 time.sleep(5)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182655445-fd25d145-bd09-4e4d-b260-6c02d5f9da10.png)
+
 ## 
 
 E enfim para o `Passo 6` iremos enviar por e-mail o resultado da nossa análise, e para isso precisamos:
@@ -297,6 +329,8 @@ pyautogui.hotkey("ctrl", "v")
 pyautogui.hotkey("ctrl", "enter")
 ```
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182661621-6621d51e-40ff-41f9-9af9-13ff4c07d3f1.png)
 
 ## Desafio 02
 
