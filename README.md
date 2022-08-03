@@ -28,6 +28,12 @@
 
 :small_blue_diamond: [Desafio 04](#desafio-04)
 
+:small_blue_diamond: [Desafio 04 Funcionando](#desafio-04-funcionando)
+
+:small_blue_diamond: [Desenvolvedores](#desenvolvedores)
+
+:small_blue_diamond: [Contribuintes](#contribuintes)
+
 ## Descrição do projeto 
 
 <p align="justify">
@@ -718,6 +724,9 @@ import pandas as pd
 tabela = pd.read_csv("advertising.csv")
 display(tabela)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182695497-bc73dfda-dadf-402b-a4bc-d084c572a417.png)
+
 ##
 
 Agora o `Passo 4`, tratar a base de dados e deixar ela mais prática.
@@ -726,6 +735,8 @@ Agora o `Passo 4`, tratar a base de dados e deixar ela mais prática.
 print(tabela.info())
 ```
 - Analizamos a nossa tabela, porém ela já está correta e não necessita alterações.
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182695632-a3668936-9476-4d0b-9b79-88297851c9c2.png)
 
 ##
 
@@ -753,13 +764,14 @@ Precisaremos descobrir a correlação de cada item da nossa tabela, para isso us
 sns.heatmap(tabela.corr(), cmap="Wistia", annot=True)
 ```
 - Utilizamos também o "Wistia" para melhorar as cores do gráfico e também o annot=True para anotar os valores dentro do gráfico.
-![image](https://user-images.githubusercontent.com/54343955/182047985-57e57a3e-a5bd-4a1c-8b4c-7c2beccdf1c6.png)
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182696018-fe7c026d-1663-4572-9c9d-4b3830635a5b.png)
 
 ## 
 
-Para o `Passo 6` criaremos nossa IA para realizar testes.
+Para o `Passo 6` criaremos nossas Inteligências Artificiais para realizar testes.
 - Pegaremos nossa base de dados e dividiremos ela em dados de treino e em dados de teste.
-- Ou seja, enviaremos dados de treino para a IA aprender, e dados de tespe para testar se a IA aprendeu.
+- Ou seja, enviaremos dados de treino para a IA aprender, e dados de teste para testar se a IA aprendeu.
 - Dividiremos em dados de x e de y.
 - y -> quem você quer prever. (vendas)
 - x -> é todo o resto. (quem você vai usar para fazer a previsão)
@@ -767,7 +779,7 @@ Para o `Passo 6` criaremos nossa IA para realizar testes.
 x = tabela[["TV", "Radio", "Jornal"]]
 y = tabela["Vendas"]
 ```
-- O próximo passo é dividir novamente nossa tabela em quatro partes para testar nossa IA, separando em dois o x e y.
+- O próximo passo é dividir novamente nossa tabela em quatro partes para testar nossas IA's, separando em dois o x e y.
 - x_treino, x_teste, y_treino, y_teste
 - Na prática ficaria assim:
 
@@ -780,6 +792,8 @@ from sklearn.model_selection import train_test_split
 x_treino, x_teste, y_treino, y_teste = train_test_split(x, y, test_size=0.3)
 ```
 - O test_size-0.3 divide os dados de treino e os dados de teste em 30% teste e 70% treino.
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182696903-1222e91a-5b62-460c-8f4c-ff94077c0106.png)
 
 Após isso precisaremos escolher os modelos de IA que vamos usar, neste projeto utilizaremos dois modelos:
 - Regressão Linear
@@ -801,6 +815,9 @@ modelo_arvoreDecisao = RandomForestRegressor()
 modelo_regressaoLinear.fit(x_treino, y_treino)
 modelo_arvoreDecisao.fit(x_treino, y_treino)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182697127-2dfd072e-e22a-4da5-9060-5f892ace8450.png)
+
 Agora testaremos a previsão dos nossos modelos de IA, e decidiremos qual o melhor modelo.
 - Vamos usar o R² que diz a % que o nosso modelo consegue explicar o que acontece.
 - [x] Fazer previsão dos testes
@@ -819,7 +836,10 @@ E com isso descobrimos que o modelo arvoreDecisao se comportou melhor com o noss
 
 ![image](https://user-images.githubusercontent.com/54343955/182049382-cde9f884-f912-45ca-a872-114b8c63e905.png)
 
-E para demonstrar melhor, podemos criar um gráfico para demonstrar visualmente como nossos modelos reagiram em relação aos nossos testes.
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182697378-3258fdc0-c396-4cfd-935f-b17654618fae.png)
+
+- para demonstrar melhor, podemos criar um gráfico para demonstrar visualmente como nossos modelos reagiram em relação aos nossos testes.
 - [x] Criação do gráfico
 ```
 tabela_auxiliar = pd.DataFrame()
@@ -831,7 +851,8 @@ plt.figure(figsize=(15,6))
 sns.lineplot(data=tabela_auxiliar)
 plt.show()
 ```
-![image](https://user-images.githubusercontent.com/54343955/182049250-5615a1c7-78aa-4c58-afce-68f1c34554b9.png)
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182697640-849b2393-cb0e-4284-8b38-f22e58b2e9a7.png)
 
 E por fim, para o `Passo 7` interpretaremos os resultados e aprenderemos a fazer as previsões.
 - Para isso basta importar nossa tabela com valores que queremos testar as nossas vendas.
@@ -843,12 +864,23 @@ display(novos)
 ```
 print(modelo_arvoreDecisao.predict(novos))
 ```
-![image](https://user-images.githubusercontent.com/54343955/182049642-e380a07c-1d58-4e83-9cbf-e7796c98c5c1.png)
+-Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182698679-ba3e7b87-401a-4794-8ca6-80f32f107e20.png)
 
-
+- Vemos que o melhor resultado foi a `Linha 2` 
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
 
-## Desenvolvedores/Contribuintes :octocat:
+## Desafio 04 Funcionando
+![2022-08-03_17h35_20-00 00 00 000-00 00 42 046](https://user-images.githubusercontent.com/54343955/182707227-8962cecc-a03d-4908-9ed3-7f96966580ba.gif)
+
+## Desenvolvedores 
+:octocat:
 
 | [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |  [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |  [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |
+| :---: | :---: | :---: 
+
+## Contribuintes 
+:octocat:
+
+| [<img src="https://media-exp1.licdn.com/dms/image/C4D0BAQG19l64x4WAWw/company-logo_200_200/0/1658255890885?e=1667433600&v=beta&t=Vlt_f3I99lh9drmC2H0pNHpeVs-MLaFtGT-pzGNDJZM" width=115><br><sub>Hashtag Treinamentos</sub>](https://www.hashtagtreinamentos.com/) |  [<img src="https://media-exp1.licdn.com/dms/image/C5103AQGVblLRPgs9Zw/profile-displayphoto-shrink_200_200/0/1517053923257?e=1665014400&v=beta&t=sB_4GxPsSkoutBNAve8q_Is_Be1uBxypwk0LuyQZYWM" width=115><br><sub>João Paulo Rodrigues de Lira</sub>](https://www.linkedin.com/in/jo%C3%A3o-paulo-rodrigues-de-lira-50664758/?originalSubdomain=br) |  [<img src="https://media-exp1.licdn.com/dms/image/C4D0BAQG19l64x4WAWw/company-logo_200_200/0/1658255890885?e=1667433600&v=beta&t=Vlt_f3I99lh9drmC2H0pNHpeVs-MLaFtGT-pzGNDJZM" width=115><br><sub>Hashtag Treinamentos</sub>](https://www.hashtagtreinamentos.com/) |
 | :---: | :---: | :---: 
