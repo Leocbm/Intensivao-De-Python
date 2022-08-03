@@ -24,6 +24,8 @@
 
 :small_blue_diamond: [Desafio 03](#desafio-03)
 
+:small_blue_diamond: [Desafio 03 Funcionando](#desafio-03-funcionando)
+
 :small_blue_diamond: [Desafio 04](#desafio-04)
 
 ## Descrição do projeto 
@@ -550,9 +552,9 @@ E iremos criar uma automação web:
 - Cada navegador tem seu próprio drive, no meu caso estou utilizando o edge.
 - Para instalar o webdriver, basta copiar o executável baixado e colar na pasta em que seu anaconda estiver instalado.
 - Para saber o local basta pesquisar por Anaconda Prompt em sua barra de pesquisa e iniciar o prompt, na primeira linha informará o local da pasta, no meu caso aparece:
-```
-C:\Users\leona>
-```
+![image](https://user-images.githubusercontent.com/54343955/182687259-f35e8858-b18f-4580-8ced-582e0fa3a5f7.png)
+
+
 - Após isso basta localizar a pasta Anaconda3 em seu computador e colar o executável dentro.
 - Caso você já não tenha o Selenium instalado em seu computador, basta ir até uma célula do seu jupyter e escrever o comando: 
 ```
@@ -589,9 +591,13 @@ navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[
 ```
 - E por fim basta achar o xpath da cotação do dólar, mas dessa vez procuraremos um elemento em específico no elemento.
 - Basta inspecionar o valor da cotação do dólar e procurar o valor que precisamos, no nosso caso o 'data-value' e especificá-lo dentro do comando .get_attribute().
+![image](https://user-images.githubusercontent.com/54343955/182687932-71afd2e5-e15b-4bc1-8311-fdd8622d5099.png)
+
 ```
 cotacao_dolar = navegador.find_element('xpath','//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
 ```
+- Nosso código:
+![2022-08-03_16h05_21-00 00 00 000-00 00 05 935](https://user-images.githubusercontent.com/54343955/182689453-bb7c5836-025e-4113-a3d5-30973b997d1e.gif)
 
 ##
 
@@ -602,6 +608,8 @@ navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[
 navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
 cotacao_euro = navegador.find_element('xpath','//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
 ```
+- Nosso código:
+![2022-08-03_16h10_40-00 00 00 000-00 00 05 970](https://user-images.githubusercontent.com/54343955/182690350-297204e8-60fc-4d80-97eb-bbf918fa561f.gif)
 
 ##
 
@@ -618,10 +626,12 @@ E usaremos o .quit() para após a análise, a aba de pesquisa fechar automaticam
 ```
 navegador.quit()
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182690696-2f8ab015-1263-42bc-90f2-a5a1d717bf02.png)
 
 ##
 
-Agora o `Passo 4` basta importarmos nossa tabela com o pandas e analisar o que precisamos modificar e atualizar ela.
+Agora o `Passo 4` basta importarmos nossa tabela com o pandas e analisar o que precisamos modificar e atualizar nela.
 - Deixei o arquivo 'Produtos.xlsx' na mesma pasta do código para facilitar.
 ```
 import pandas as pd
@@ -629,6 +639,8 @@ import pandas as pd
 tabela = pd.read_excel("Produtos.xlsx")
 display(tabela)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182690950-f757362b-24a8-447d-95c2-3ff8aaa42513.png)
 
 ##
 
@@ -652,6 +664,9 @@ E atualizaremos o preço de venda, multiplicando a coluna "Preço de Compra" com
 ```
 tabela["Preço de Venda"] = tabela["Preço de Compra"] * tabela["Margem"]
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182691091-ef29c57b-f0fa-4500-b2d8-2d71c273b5a4.png)
+
 ## 
 
 E enfim para o `Passo 6` iremos exportar nossa tabela.
@@ -660,8 +675,14 @@ E enfim para o `Passo 6` iremos exportar nossa tabela.
 ```
 tabela.to_excel("Produtos Novo.xlsx", index=False)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182691267-8369a177-a784-4ff9-9374-ffb15abff92c.png)
 
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desafio 03 Funcionando
+![2022-08-03_16h27_01-00 00 00 000-00 00 39 305](https://user-images.githubusercontent.com/54343955/182693431-1313e7d4-d281-41d7-b410-e3e45d4aba75.gif)
+
 
 ## Desafio 04
 
