@@ -37,7 +37,7 @@
 ## Descrição do projeto 
 
 <p align="justify">
-  Meu primeiro projeto usando o Jupyter Notebook e minha primeira experiência abordando temas como Automação De Sistemas e Processos, Análise De Dados, Automação Web, Busca de Informações e a Utilização de Inteligência Artificial para uma Previsão de Vendas.
+  Meu primeiro projeto utilizando o Jupyter Notebook e minha primeira experiência abordando temas como Automação De Sistemas e Processos, Análise De Dados, Automação Web, Busca de Informações e a Utilização de Inteligência Artificial para uma Previsão de Vendas.
 </p>
 
 ## Funcionalidades
