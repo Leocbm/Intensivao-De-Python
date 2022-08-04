@@ -566,10 +566,13 @@ E iremos criar uma automação web:
 ```
 !pip install selenium
 ```
-- E em seguida basta importá-lo em seu projeto, e importaremos também a função keys para utilizar teclas de atalho na automação.
+- E em seguida basta importá-lo em seu projeto
+- Importaremos também a função keys para utilizar teclas de atalho na automação
+- E importaremos a função By que é um mecanismo usado para localizar elementos dentro de um documento
 ```
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 ```
 
 Agora podemos realizar os comandos necessários para concluir o `Passo 1`:
@@ -589,40 +592,47 @@ navegador.get("https://www.google.com.br/")
 ![image](https://user-images.githubusercontent.com/54343955/181827520-b1aa2a87-04a3-4c81-a18a-dc65048a1afd.png)
 - Em seguida usaremos o comando .find_element() informando o xpath, e também o comando send_keys() para enviar o texto desejado.
 ```
-navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao dolar")
+navegador.find_element(By.XPATH,'/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao dolar")
 ```
 - Agora pegaremos xpath do botão pesquisar e utilizar o comando send_keys(Keys.ENTER).
 ```
-navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
+navegador.find_element(By.XPATH,'/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
 ```
 - E por fim basta achar o xpath da cotação do dólar, mas dessa vez procuraremos um elemento em específico no elemento.
 - Basta inspecionar o valor da cotação do dólar e procurar o valor que precisamos, no nosso caso o 'data-value' e especificá-lo dentro do comando .get_attribute().
 ![image](https://user-images.githubusercontent.com/54343955/182687932-71afd2e5-e15b-4bc1-8311-fdd8622d5099.png)
 
 ```
-cotacao_dolar = navegador.find_element('xpath','//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
+cotacao_dolar = navegador.find_element(By.XPATH,'//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
+```
+- Caso queira que a automação rode em segundo plano, basta acrescentar ao inicio do código:
+```
+# from selenium.webdriver.edge.options import Options
+# edge_options = Options()
+# edge_options.headless = True 
+# navegador = webdriver.Edge(options=edge_options)
 ```
 - Nosso código:
-![2022-08-03_16h05_21-00 00 00 000-00 00 05 935](https://user-images.githubusercontent.com/54343955/182689453-bb7c5836-025e-4113-a3d5-30973b997d1e.gif)
+![2022-08-04_10h34_22-00 00 00 000-00 00 07 900](https://user-images.githubusercontent.com/54343955/182860679-32ae93e8-6e17-44a7-aa28-53d86d375a12.gif)
 
 ##
 
 Para `Passo 2` basta repetir o `Passo 1` mas dessa vez pesquisando a cotação do euro.
 ```
 navegador.get("https://www.google.com.br/")
-navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao euro") # como e qual o codigo /
-navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
-cotacao_euro = navegador.find_element('xpath','//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
+navegador.find_element(By.XPATH,'/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao euro") # como e qual o codigo /
+navegador.find_element(By.XPATH,'/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
+cotacao_euro = navegador.find_element(By.XPATH,'//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
 ```
 - Nosso código:
-![2022-08-03_16h10_40-00 00 00 000-00 00 05 970](https://user-images.githubusercontent.com/54343955/182690350-297204e8-60fc-4d80-97eb-bbf918fa561f.gif)
+![2022-08-04_10h41_06-00 00 00 000-00 00 09 589](https://user-images.githubusercontent.com/54343955/182862020-dcd70d7c-fd08-4725-98bd-5216dfe5c5a2.gif)
 
 ##
 
 Para o `Passo 3` precisaremos fazer quase o mesmo processo dos passos anteriores, mas dessa vez no site Melhor câmbio.
 ```
 navegador.get("https://www.melhorcambio.com/ouro-hoje#:~:text=O%20valor%20do%20grama%20do,em%20R%24%20292%2C87.")
-cotacao_ouro = navegador.find_element('xpath','//*[@id="comercial"]').get_attribute('value')
+cotacao_ouro = navegador.find_element(By.XPATH,'//*[@id="comercial"]').get_attribute('value')
 ```
 Mas dessa vez o valor do ouro veio com a formatação errada, então usaremos o .replace(",",".") para substituir a vírgula por ponto.
 ```
@@ -633,7 +643,7 @@ E usaremos o .quit() para após a análise, a aba de pesquisa fechar automaticam
 navegador.quit()
 ```
 - Nosso código:
-![image](https://user-images.githubusercontent.com/54343955/182690696-2f8ab015-1263-42bc-90f2-a5a1d717bf02.png)
+![image](https://user-images.githubusercontent.com/54343955/182862405-0768157c-e96f-4a4e-9817-4517883cf512.png)
 
 ##
 
