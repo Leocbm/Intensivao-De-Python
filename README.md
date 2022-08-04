@@ -874,10 +874,17 @@ display(novos)
 ```
 print(modelo_arvoreDecisao.predict(novos))
 ```
+- Vemos que o melhor resultado foi a `Linha 2` 
 -Nosso código:
 ![image](https://user-images.githubusercontent.com/54343955/182698679-ba3e7b87-401a-4794-8ca6-80f32f107e20.png)
 
-- Vemos que o melhor resultado foi a `Linha 2` 
+- Qual a importância de cada variável para as vendas?
+```
+sns.barplot(x=x_treino.columns, y=modelo_arvoreDecisao.feature_importances_)
+plt.show()
+```
+![image](https://user-images.githubusercontent.com/54343955/182875818-7f683246-a90a-4c14-957d-94a25bc1fc2b.png)
+
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
 
 ## Desafio 04 Funcionando
