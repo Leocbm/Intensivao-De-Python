@@ -16,16 +16,28 @@
 
 :small_blue_diamond: [Desafio 01](#desafio-01)
 
+:small_blue_diamond: [Desafio 01 Funcionando](#desafio-01-funcionando)
+
 :small_blue_diamond: [Desafio 02](#desafio-02)
+
+:small_blue_diamond: [Desafio 02 Funcionando](#desafio-02-funcionando)
 
 :small_blue_diamond: [Desafio 03](#desafio-03)
 
+:small_blue_diamond: [Desafio 03 Funcionando](#desafio-03-funcionando)
+
 :small_blue_diamond: [Desafio 04](#desafio-04)
+
+:small_blue_diamond: [Desafio 04 Funcionando](#desafio-04-funcionando)
+
+:small_blue_diamond: [Desenvolvedores](#desenvolvedores)
+
+:small_blue_diamond: [Contribuintes](#contribuintes)
 
 ## Descrição do projeto 
 
 <p align="justify">
-  Meu primeiro projeto usando o Jupyter Notebook e minha primeira experiência abordando temas como Automação De Sistemas e Processos, Análise De Dados, Automação Web, Busca de Informações e a Utilização de IA para a Previsão de Vendas.
+  Meu primeiro projeto utilizando o Jupyter Notebook e minha primeira experiência abordando temas como Automação De Sistemas e Processos, Análise De Dados, Automação Web, Busca de Informações e a Utilização de Inteligência Artificial para uma Previsão de Vendas.
 </p>
 
 ## Funcionalidades
@@ -126,19 +138,29 @@ No terminal, clone o projeto:
 ```
 git clone https://github.com/Leocbm/Intensivao-De-Python.git
 ```
-- Vá até o seu terminal, caso não saiba basta pesquisar por 'Prompt De Comando' na barra de pesquisa:
+- Vá até o seu terminal, caso não saiba basta pesquisar por 'git CMD' na barra de pesquisa:
+<img src="https://user-images.githubusercontent.com/54343955/182642752-1fd19d66-3b1c-46c5-9882-873eb1c3b8fc.png" width="480">
+
 - Navegue até a pasta desejada com o comando 'cd', exemplo se sua pasta estiver no Desktop:
+
 ``` 
 cd Desktop/Pasta
 ```
 - Na pasta, basta escrever o comando acima.
+<img src="https://user-images.githubusercontent.com/54343955/182644414-aa4c1dc0-9c79-4472-8a1c-fcaedee9581e.png" width="580">
+
+- Ou se preferir pode utilizar o terminal da própria IDE/Editor de códigos:
+- Exemplo usando o terminal do Jupyter:
+<img src="https://user-images.githubusercontent.com/54343955/182663195-e6861872-0537-4b01-8782-82f5d9ec912d.png" width="880">
+
+- Pronto! 😄
 - Lembre-se de ter o <a href="https://git-scm.com/">git</a> instalado.
 
 ## Desafio 01
 
 Para início, nos deparamos com o seguinte desafio:
 
-- `Desafio`: Todos os dias, o nosso sistema atualiza as vendas do dia anterior. O seu trabalho diário, como analista, é enviar um e-mail para a diretoria, assim que começar a trabalhar, com o faturamento e a quantidade de produtos vendidos no dia anterior
+- `Desafio`: Todos os dias, o nosso sistema atualiza as vendas do dia anterior. O seu trabalho diário, como analista, é enviar um e-mail para a diretoria, assim que começar a trabalhar, com o faturamento e a quantidade de produtos vendidos no dia anterior.
 
 - E-mail da diretoria: seugmail+diretoria@gmail.com
 - Local onde o sistema disponibiliza as vendas do dia anterior: https://drive.google.com/drive/folders/149xknr9JvrlEnhNWO49zPcw0PW5icxga?usp=sharing
@@ -174,6 +196,9 @@ Comandos pyautogui: https://pyautogui.readthedocs.io/en/latest/quickstart.html
 import pyautogui
 import pyperclip
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182649181-449fe475-5240-4160-8f72-9fc9f0334167.png)
+
 Agora podemos realizar os comandos necessários para concluir o `Passo 1`:
 - Como o pyautogui realiza várias ações rapidamente, o navegador não consegue acompanhar os comandos, então o comando pyautogui.PAUSE = 1 faz com que seja realizado uma pausa de 1 segundo entre cada comando realizado. 
 ```
@@ -202,6 +227,8 @@ import time
 ```
 time.sleep(5)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182650723-312b98a0-e165-4e85-9adb-0e70989e9a27.png)
 - Consideramos que o seu navegador ja esteja aberto para os comandos acima, mas caso queira abrir o programa do zero basta acrescentar ao inicio do código:
 ```
 # pyautogui.press("win")
@@ -223,16 +250,25 @@ pyautogui.position()
 pyautogui.click(x=878, y=676, clicks=2)
 time.sleep(2)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182651410-4ecf2753-07d2-4666-9b7b-a737656b969f.png)
 
 ##
 
-O `Passo 3` agora é realizar o download do arquivo, para isso precisaremos descobrir a posição do arquivo + a posição do 'Mais Ações' (conhecido com 3 pontos) + a opção de baixar (dentro dos 3 pontos) utilizando o pyautogui.click(x=, y=), e por fim mais um sleep para dar tempo do arquivo baixar.
+O `Passo 3` agora é realizar o download do arquivo, para isso precisaremos descobrir:
+- [x] A posição do arquivo
+- [x] A posição do 'Mais Ações' (conhecido com 3 pontos)
+- [x] A opção de baixar (dentro dos 3 pontos)
+
+E utilizar o pyautogui.click(x=, y=), junto a um .sleep() para dar tempo do arquivo baixar.
 ```
 pyautogui.click(x=1000, y=919)
 pyautogui.click(x=3323, y=406)
 pyautogui.click(x=2748, y=1529)
 time.sleep(5)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182652294-c12c61e7-b016-4aa6-9a57-50ed84588a8d.png)
 
 ##
 
@@ -240,16 +276,21 @@ Agora o `Passo 4` é calcular os indicadores, para isso precisaremos importar a 
 ```
 import pandas as pd
 ```
-- E agora importaremos nossa tabela baixada do link, para isso armazenaremos ela dentro de uma variável com nome de sua escolha e utilizaremos o comando pd.read_excel(r" ") informando o local exato em que o arquivo está localizado em seu computador (Varia de caso para caso), e usaremos um display() com a variável criada para mostrar a tabela na tela.
+- E agora importaremos nossa tabela baixada do link
+- Para isso armazenaremos ela dentro de uma variável com nome de sua escolha 
+- Utilizaremos o comando pd.read_excel(r" ") informando o local exato em que o arquivo está localizado em seu computador (Varia de caso para caso)
+- E usaremos um display() com a variável criada para mostrar a tabela na tela
 ```
 tabela = pd.read_excel(r"C://Users/joaol/Downloads/Vendas - Dez.xlsx")
 display(tabela)
 ```
-- Com a tabela na tela, analisaremos seus dados e pegaremos os dados que precisamos, e para isso usaremos os comandos a seguir para somar as colunas desejadas.
+- Com a tabela na tela, analisaremos seus dados e pegaremos os dados que precisamos, para isso usaremos os comandos a seguir para somar as colunas desejadas.
 ```
 faturamento = tabela["Valor Final"].sum()
 quantidade = tabela["Quantidade"].sum()
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182655110-49f3a7be-95f6-4820-b43f-a1e60d854d95.png)
 
 ##
 
@@ -261,6 +302,9 @@ pyautogui.hotkey("ctrl", "v")
 pyautogui.press("enter")
 time.sleep(5)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182655445-fd25d145-bd09-4e4d-b260-6c02d5f9da10.png)
+
 ## 
 
 E enfim para o `Passo 6` iremos enviar por e-mail o resultado da nossa análise, e para isso precisamos:
@@ -296,7 +340,13 @@ pyperclip.copy(texto)
 pyautogui.hotkey("ctrl", "v")
 pyautogui.hotkey("ctrl", "enter")
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182661621-6621d51e-40ff-41f9-9af9-13ff4c07d3f1.png)
+
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desafio 01 Funcionando
+![Automação de Sistemas e Processos com Python](https://user-images.githubusercontent.com/54343955/182669725-766218ed-2be4-4e1c-8cc3-183c767a784f.gif)
 
 ## Desafio 02
 
@@ -339,11 +389,14 @@ import pandas as pd
 
 tabela = pd.read_csv("telecom_users.csv")
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182672808-2297d8a7-ba26-47b8-8822-5d009294277d.png)
+
 ##
 
 Para `Passo 2` teremos 4 etapas:
 - [x] Visualizar a base de dados.
-- [x] Entender as informações que você tem disponivel.
+- [x] Entender as informações que você tem disponível.
 - [x] Descobrir o problema da base de dados.
 - [x] Excluir colunas inúteis (informações que não te ajudam, te atrapalham).
 
@@ -354,22 +407,25 @@ display(tabela)
 Agora que analisamos a tabela, percebemos que a coluna 'Unnamed' não nos servirá para nada, então teremos q excluir ela.
 - Para excluir uma informação de uma tabela, devemos utilizar o comando tabela.drop() e informar um "nome" e um eixo.
 - Para isso devemos saber que o "nome" pode ser o nome ou a linha da tabela, e o eixo utilizamos axis=o -> para o eixo da linha e axis=1 -> para o eixo da coluna.
-- ex: se fosse uma linha especifica ex: 3 / tabela = tabela.drop(3, axis=0)
 ```
-tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce")
+tabela = tabela.drop("Unnamed: 0", axis=1))
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182673698-ca9e4d3f-cf9e-4ce6-a6ff-839e5e6c6161.png)
+
 ##
 
-Para o `Passo 3` precisaremos tratar os dados e isso possui 2 etapas:
+Para o `Passo 3` precisaremos tratar os dados e isso possui 3 etapas:
 - [x] Resumir sua base de dados
 - [x] Verificar se as informações são tipo correto.
 - [x] Eliminar informações vazias, podem ser colunas ou linhas.
+
 Para resumir a base de dados utilizamos o comando print(tabela.info())
 ```
 print(tabela.info())
 ```
-Notamos que a coluta 'Total Gasto' está sendo reconhecida como object(texto) mas ela é do tipo float(com casas decimais), e para isso precisaremos corrigi-la
-com o comando pd.to_numeric() para transformá-la em números e o metodo errors="coerce" para forçar o erro a virar número.
+- Notamos que a coluta 'Total Gasto' está sendo reconhecida como object(texto) mas ela é do tipo float(com casas decimais)
+- Precisaremos corrigi-la com o comando pd.to_numeric() para transformá-la em números e o metodo errors="coerce" para forçar o erro a virar número.
 ```
 tabela["TotalGasto"] = pd.to_numeric(tabela["TotalGasto"], errors="coerce")
 ```
@@ -385,6 +441,8 @@ tabela = tabela.dropna(how="all", axis=1)
 ```
 tabela = tabela.dropna(how="any", axis=0)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182674700-2d83aa66-5f34-4249-b54a-bd2c16bf1555.png)
 
 ##
 
@@ -402,6 +460,8 @@ formatar a porcentagem.
 print(tabela["Churn"].value_counts(normalize=True).map("{:.1%}".format))
 ```
 - E com isso confirmamos os 26% de cancelamento.
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182674892-a8516bd9-d58c-4e27-977e-0bce8f708af0.png)
 
 ##
 
@@ -425,33 +485,38 @@ for coluna in tabela.columns:
     grafico = px.histogram(tabela, x=coluna, color="Churn")
     grafico.show()
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182675299-d1d239d9-352d-4ecc-8948-24c5a5abce58.png)
 
 ##
 
 E por fim no `Passo 6` basta análisar os dados e anotar suas Conclusões.
 - `Conclusões`:
 
-Clientes que estão há pouco tempo estão cancelando muito
+- [x] Clientes que estão há pouco tempo estão cancelando muito
 - Pode estar fazendo alguma promoção que dá o primeiro mês de graça
 - O inicio do serviço pro cliente está sendo muito confuso
 - A primeira experiencia pro cliente ta ruim
 - Podemos criar incentivos nos primeiros mêses - primeiro ano mais barato
 
-Boleto Eletronico tem muito mais cancelamento que as outras formas de pagamento
+- [x] Boleto Eletronico tem muito mais cancelamento que as outras formas de pagamento
 - Oferecer desconto nas outras formas de pagamento
 
-Pessoas com contrato mensal tem muito mais chance de cancelar
+- [x] Pessoas com contrato mensal tem muito mais chance de cancelar
 - Desconto para pagar a anuídade
 
-Mais serviços o cliente tem (suporte) menos ele cancela
+- [x] Mais serviços o cliente tem (suporte) menos ele cancela
 - Pode oferecer serviços extras quase de graça
 
-Clientes com familia maior tem menos chance de cancelar
+- [x] Clientes com familia maior tem menos chance de cancelar
 - 2° linha de graça ou desconto
-
-##
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182675820-4e88375a-55a1-4aad-8966-26e43fd15004.png)
 
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desafio 02 Funcionando
+![Análise de dados com Python](https://user-images.githubusercontent.com/54343955/182684440-1fa7ee89-8c16-4d18-bc06-dca9c7d5a770.gif)
 
 ## Desafio 03
 
@@ -493,18 +558,21 @@ E iremos criar uma automação web:
 - Cada navegador tem seu próprio drive, no meu caso estou utilizando o edge.
 - Para instalar o webdriver, basta copiar o executável baixado e colar na pasta em que seu anaconda estiver instalado.
 - Para saber o local basta pesquisar por Anaconda Prompt em sua barra de pesquisa e iniciar o prompt, na primeira linha informará o local da pasta, no meu caso aparece:
-```
-C:\Users\leona>
-```
+![image](https://user-images.githubusercontent.com/54343955/182687259-f35e8858-b18f-4580-8ced-582e0fa3a5f7.png)
+
+
 - Após isso basta localizar a pasta Anaconda3 em seu computador e colar o executável dentro.
 - Caso você já não tenha o Selenium instalado em seu computador, basta ir até uma célula do seu jupyter e escrever o comando: 
 ```
 !pip install selenium
 ```
-- E em seguida basta importá-lo em seu projeto, e importaremos também a função keys para utilizar teclas de atalho na automação.
+- E em seguida basta importá-lo em seu projeto
+- Importaremos também a função keys para utilizar teclas de atalho na automação
+- E importaremos a função By que é um mecanismo usado para localizar elementos dentro de um documento
 ```
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 ```
 
 Agora podemos realizar os comandos necessários para concluir o `Passo 1`:
@@ -524,34 +592,47 @@ navegador.get("https://www.google.com.br/")
 ![image](https://user-images.githubusercontent.com/54343955/181827520-b1aa2a87-04a3-4c81-a18a-dc65048a1afd.png)
 - Em seguida usaremos o comando .find_element() informando o xpath, e também o comando send_keys() para enviar o texto desejado.
 ```
-navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao dolar")
+navegador.find_element(By.XPATH,'/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao dolar")
 ```
 - Agora pegaremos xpath do botão pesquisar e utilizar o comando send_keys(Keys.ENTER).
 ```
-navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
+navegador.find_element(By.XPATH,'/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
 ```
 - E por fim basta achar o xpath da cotação do dólar, mas dessa vez procuraremos um elemento em específico no elemento.
 - Basta inspecionar o valor da cotação do dólar e procurar o valor que precisamos, no nosso caso o 'data-value' e especificá-lo dentro do comando .get_attribute().
+![image](https://user-images.githubusercontent.com/54343955/182687932-71afd2e5-e15b-4bc1-8311-fdd8622d5099.png)
+
 ```
-cotacao_dolar = navegador.find_element('xpath','//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
+cotacao_dolar = navegador.find_element(By.XPATH,'//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
 ```
+- Caso queira que a automação rode em segundo plano, basta acrescentar ao inicio do código:
+```
+# from selenium.webdriver.edge.options import Options
+# edge_options = Options()
+# edge_options.headless = True 
+# navegador = webdriver.Edge(options=edge_options)
+```
+- Nosso código:
+![2022-08-04_10h34_22-00 00 00 000-00 00 07 900](https://user-images.githubusercontent.com/54343955/182860679-32ae93e8-6e17-44a7-aa28-53d86d375a12.gif)
 
 ##
 
 Para `Passo 2` basta repetir o `Passo 1` mas dessa vez pesquisando a cotação do euro.
 ```
 navegador.get("https://www.google.com.br/")
-navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao euro") # como e qual o codigo /
-navegador.find_element('xpath','/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
-cotacao_euro = navegador.find_element('xpath','//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
+navegador.find_element(By.XPATH,'/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input').send_keys("cotacao euro") # como e qual o codigo /
+navegador.find_element(By.XPATH,'/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]').send_keys(Keys.ENTER)
+cotacao_euro = navegador.find_element(By.XPATH,'//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute('data-value')
 ```
+- Nosso código:
+![2022-08-04_10h41_06-00 00 00 000-00 00 09 589](https://user-images.githubusercontent.com/54343955/182862020-dcd70d7c-fd08-4725-98bd-5216dfe5c5a2.gif)
 
 ##
 
 Para o `Passo 3` precisaremos fazer quase o mesmo processo dos passos anteriores, mas dessa vez no site Melhor câmbio.
 ```
 navegador.get("https://www.melhorcambio.com/ouro-hoje#:~:text=O%20valor%20do%20grama%20do,em%20R%24%20292%2C87.")
-cotacao_ouro = navegador.find_element('xpath','//*[@id="comercial"]').get_attribute('value')
+cotacao_ouro = navegador.find_element(By.XPATH,'//*[@id="comercial"]').get_attribute('value')
 ```
 Mas dessa vez o valor do ouro veio com a formatação errada, então usaremos o .replace(",",".") para substituir a vírgula por ponto.
 ```
@@ -561,10 +642,12 @@ E usaremos o .quit() para após a análise, a aba de pesquisa fechar automaticam
 ```
 navegador.quit()
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182862405-0768157c-e96f-4a4e-9817-4517883cf512.png)
 
 ##
 
-Agora o `Passo 4` basta importarmos nossa tabela com o pandas e analisar o que precisamos modificar e atualizar ela.
+Agora o `Passo 4` basta importarmos nossa tabela com o pandas e analisar o que precisamos modificar e atualizar nela.
 - Deixei o arquivo 'Produtos.xlsx' na mesma pasta do código para facilitar.
 ```
 import pandas as pd
@@ -572,6 +655,8 @@ import pandas as pd
 tabela = pd.read_excel("Produtos.xlsx")
 display(tabela)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182690950-f757362b-24a8-447d-95c2-3ff8aaa42513.png)
 
 ##
 
@@ -595,6 +680,9 @@ E atualizaremos o preço de venda, multiplicando a coluna "Preço de Compra" com
 ```
 tabela["Preço de Venda"] = tabela["Preço de Compra"] * tabela["Margem"]
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182691091-ef29c57b-f0fa-4500-b2d8-2d71c273b5a4.png)
+
 ## 
 
 E enfim para o `Passo 6` iremos exportar nossa tabela.
@@ -603,8 +691,14 @@ E enfim para o `Passo 6` iremos exportar nossa tabela.
 ```
 tabela.to_excel("Produtos Novo.xlsx", index=False)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182691267-8369a177-a784-4ff9-9374-ffb15abff92c.png)
 
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
+
+## Desafio 03 Funcionando
+![2022-08-03_16h27_01-00 00 00 000-00 00 39 305](https://user-images.githubusercontent.com/54343955/182693431-1313e7d4-d281-41d7-b410-e3e45d4aba75.gif)
+
 
 ## Desafio 04
 
@@ -640,6 +734,9 @@ import pandas as pd
 tabela = pd.read_csv("advertising.csv")
 display(tabela)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182695497-bc73dfda-dadf-402b-a4bc-d084c572a417.png)
+
 ##
 
 Agora o `Passo 4`, tratar a base de dados e deixar ela mais prática.
@@ -648,6 +745,8 @@ Agora o `Passo 4`, tratar a base de dados e deixar ela mais prática.
 print(tabela.info())
 ```
 - Analizamos a nossa tabela, porém ela já está correta e não necessita alterações.
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182695632-a3668936-9476-4d0b-9b79-88297851c9c2.png)
 
 ##
 
@@ -675,13 +774,14 @@ Precisaremos descobrir a correlação de cada item da nossa tabela, para isso us
 sns.heatmap(tabela.corr(), cmap="Wistia", annot=True)
 ```
 - Utilizamos também o "Wistia" para melhorar as cores do gráfico e também o annot=True para anotar os valores dentro do gráfico.
-![image](https://user-images.githubusercontent.com/54343955/182047985-57e57a3e-a5bd-4a1c-8b4c-7c2beccdf1c6.png)
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182696018-fe7c026d-1663-4572-9c9d-4b3830635a5b.png)
 
 ## 
 
-Para o `Passo 6` criaremos nossa IA para realizar testes.
+Para o `Passo 6` criaremos nossas Inteligências Artificiais para realizar testes.
 - Pegaremos nossa base de dados e dividiremos ela em dados de treino e em dados de teste.
-- Ou seja, enviaremos dados de treino para a IA aprender, e dados de tespe para testar se a IA aprendeu.
+- Ou seja, enviaremos dados de treino para a IA aprender, e dados de teste para testar se a IA aprendeu.
 - Dividiremos em dados de x e de y.
 - y -> quem você quer prever. (vendas)
 - x -> é todo o resto. (quem você vai usar para fazer a previsão)
@@ -689,7 +789,7 @@ Para o `Passo 6` criaremos nossa IA para realizar testes.
 x = tabela[["TV", "Radio", "Jornal"]]
 y = tabela["Vendas"]
 ```
-- O próximo passo é dividir novamente nossa tabela em quatro partes para testar nossa IA, separando em dois o x e y.
+- O próximo passo é dividir novamente nossa tabela em quatro partes para testar nossas IA's, separando em dois o x e y.
 - x_treino, x_teste, y_treino, y_teste
 - Na prática ficaria assim:
 
@@ -702,6 +802,8 @@ from sklearn.model_selection import train_test_split
 x_treino, x_teste, y_treino, y_teste = train_test_split(x, y, test_size=0.3)
 ```
 - O test_size-0.3 divide os dados de treino e os dados de teste em 30% teste e 70% treino.
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182696903-1222e91a-5b62-460c-8f4c-ff94077c0106.png)
 
 Após isso precisaremos escolher os modelos de IA que vamos usar, neste projeto utilizaremos dois modelos:
 - Regressão Linear
@@ -723,6 +825,9 @@ modelo_arvoreDecisao = RandomForestRegressor()
 modelo_regressaoLinear.fit(x_treino, y_treino)
 modelo_arvoreDecisao.fit(x_treino, y_treino)
 ```
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182697127-2dfd072e-e22a-4da5-9060-5f892ace8450.png)
+
 Agora testaremos a previsão dos nossos modelos de IA, e decidiremos qual o melhor modelo.
 - Vamos usar o R² que diz a % que o nosso modelo consegue explicar o que acontece.
 - [x] Fazer previsão dos testes
@@ -741,7 +846,10 @@ E com isso descobrimos que o modelo arvoreDecisao se comportou melhor com o noss
 
 ![image](https://user-images.githubusercontent.com/54343955/182049382-cde9f884-f912-45ca-a872-114b8c63e905.png)
 
-E para demonstrar melhor, podemos criar um gráfico para demonstrar visualmente como nossos modelos reagiram em relação aos nossos testes.
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182697378-3258fdc0-c396-4cfd-935f-b17654618fae.png)
+
+- para demonstrar melhor, podemos criar um gráfico para demonstrar visualmente como nossos modelos reagiram em relação aos nossos testes.
 - [x] Criação do gráfico
 ```
 tabela_auxiliar = pd.DataFrame()
@@ -753,7 +861,8 @@ plt.figure(figsize=(15,6))
 sns.lineplot(data=tabela_auxiliar)
 plt.show()
 ```
-![image](https://user-images.githubusercontent.com/54343955/182049250-5615a1c7-78aa-4c58-afce-68f1c34554b9.png)
+- Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182697640-849b2393-cb0e-4284-8b38-f22e58b2e9a7.png)
 
 E por fim, para o `Passo 7` interpretaremos os resultados e aprenderemos a fazer as previsões.
 - Para isso basta importar nossa tabela com valores que queremos testar as nossas vendas.
@@ -765,12 +874,30 @@ display(novos)
 ```
 print(modelo_arvoreDecisao.predict(novos))
 ```
-![image](https://user-images.githubusercontent.com/54343955/182049642-e380a07c-1d58-4e83-9cbf-e7796c98c5c1.png)
+- Vemos que o melhor resultado foi a `Linha 2` 
+-Nosso código:
+![image](https://user-images.githubusercontent.com/54343955/182698679-ba3e7b87-401a-4794-8ca6-80f32f107e20.png)
 
+- Qual a importância de cada variável para as vendas?
+```
+sns.barplot(x=x_treino.columns, y=modelo_arvoreDecisao.feature_importances_)
+plt.show()
+```
+![image](https://user-images.githubusercontent.com/54343955/182875818-7f683246-a90a-4c14-957d-94a25bc1fc2b.png)
 
 - PRONTO! AGORA É SÓ IMPRESSIONAR O CHEFE 😁
 
-## Desenvolvedores/Contribuintes :octocat:
+## Desafio 04 Funcionando
+![2022-08-03_17h35_20-00 00 00 000-00 00 42 046](https://user-images.githubusercontent.com/54343955/182707227-8962cecc-a03d-4908-9ed3-7f96966580ba.gif)
+
+## Desenvolvedores 
+:octocat:
 
 | [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |  [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |  [<img src="https://avatars.githubusercontent.com/u/54343955?v=4" width=115><br><sub>Leonardo Cunha</sub>](https://github.com/Leocbm) |
+| :---: | :---: | :---: 
+
+## Contribuintes 
+:octocat:
+
+| [<img src="https://media-exp1.licdn.com/dms/image/C4D0BAQG19l64x4WAWw/company-logo_200_200/0/1658255890885?e=1667433600&v=beta&t=Vlt_f3I99lh9drmC2H0pNHpeVs-MLaFtGT-pzGNDJZM" width=115><br><sub>Hashtag Treinamentos</sub>](https://www.hashtagtreinamentos.com/) |  [<img src="https://media-exp1.licdn.com/dms/image/C5103AQGVblLRPgs9Zw/profile-displayphoto-shrink_200_200/0/1517053923257?e=1665014400&v=beta&t=sB_4GxPsSkoutBNAve8q_Is_Be1uBxypwk0LuyQZYWM" width=115><br><sub>João Paulo Rodrigues de Lira</sub>](https://www.linkedin.com/in/jo%C3%A3o-paulo-rodrigues-de-lira-50664758/?originalSubdomain=br) |  [<img src="https://media-exp1.licdn.com/dms/image/C4D0BAQG19l64x4WAWw/company-logo_200_200/0/1658255890885?e=1667433600&v=beta&t=Vlt_f3I99lh9drmC2H0pNHpeVs-MLaFtGT-pzGNDJZM" width=115><br><sub>Hashtag Treinamentos</sub>](https://www.hashtagtreinamentos.com/) |
 | :---: | :---: | :---: 
